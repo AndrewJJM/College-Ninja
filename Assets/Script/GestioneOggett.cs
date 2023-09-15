@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class GestioneOggett : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject whole;
+       public GameObject sliced;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+       private Rigidbody fruitRigidbody;
+       private Collider fruitCollider;
+       private ParticleSystem juiceEffect;
+
+       public int points = 1;
 }
