@@ -42,4 +42,12 @@ public class GestioneOggett : MonoBehaviour
             slice.AddForceAtPosition(direction * force, position, ForceMode.Impulse);
         }
     }
+ private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Blade blade = other.GetComponent<Blade>();
+            Slice(blade.direction, blade.transform.position, blade.sliceForce);
+        }
+    }
 }
