@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4413472161004887346}
   m_Layer: 0
-  m_Name: fruit_base
+  m_Name: OggUni_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
