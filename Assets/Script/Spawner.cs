@@ -2,24 +2,24 @@ using System.Collections;
 using UnityEngine;
 
 
-private [serializefield] class Spawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     private Collider spawnArea;
 
-    private [serializefield] GameObject[] OggUniPrefabs;
-    private [serializefield] GameObject bombaPrefab;
-    [Range(0f, 1f)] private [serializefield] float bombaChance = 0.05f;
+    [SerializeField] private  GameObject[] OggUniPrefabs;
+    [SerializeField] private  GameObject bombaPrefab;
+    [Range(0f, 1f)] public float bombaChance = 0.05f;
 
-    private [serializefield] float minSpawnDelay = 0.25f;
-    private [serializefield] float maxSpawnDelay = 1f;
+    [SerializeField] private float minSpawnDelay = 0.25f;
+    [SerializeField] private float maxSpawnDelay = 1f;
 
-    private [serializefield] float minAngolo = -15f;
-    private [serializefield] float maxAngolo = 15f;
+    [SerializeField] private float minAngolo = -15f;
+    [SerializeField] private float maxAngolo = 15f;
 
-    private [serializefield] float minForza = 18f;
-    private [serializefield] float maxForza= 22f;
+    [SerializeField] private float minForza = 18f;
+    [SerializeField] private float maxForza= 22f;
 
-    private [serializefield] float maxLifetime = 5f;
+    [SerializeField] private float maxLifetime = 5f;
 
     
     private void Awake()
@@ -60,7 +60,7 @@ private [serializefield] class Spawner : MonoBehaviour
             Destroy(OggUni, maxLifetime);
 
             float forza = Random.Range(minForza, maxForza);
-            .OggUni<Rigidbody>().AddForza(OggUni.transform.up * forza, ForzaMode.Impulse);
+            OggUni.GetComponent<Rigidbody>().AddForce(OggUni.transform.up * forza, ForceMode.Impulse);
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         }
