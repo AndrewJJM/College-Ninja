@@ -19,7 +19,7 @@ public class GestioneOggett : MonoBehaviour
 
     private void Slice(Vector3 direction, Vector3 position, float force)
     {
-        FindObjectOfType<GameManager>().IncreaseScore(points);
+        // TODO: FindObjectOfType<GameManager>().IncreaseScore(points);
 
         // Disable the whole fruit
         fruitCollider.enabled = false;

@@ -1,34 +1,36 @@
 using UnityEngine;
-public class NewBehaviourScript : MonoBehaviour
+
+public class Blade : MonoBehaviour
 {
-public Vector3 direction { get; private set; }
+    public Vector3 direction { get; private set; }
 
     private Camera mainCamera;
-    
+
     private Collider sliceCollider;
     private TrailRenderer sliceTrail;
 
-     public float sliceForce = 5f;
+    public float sliceForce = 5f;
     public float minSliceVelocity = 0.01f;
-    
- private bool slicing;
 
-  private void Awake()
+    private bool slicing;
+
+    private void Awake()
     {
         mainCamera = Camera.main;
         sliceCollider = GetComponent<Collider>();
         sliceTrail = GetComponentInChildren<TrailRenderer>();
     }
-    
-private void OnEnable()
+
+    private void OnEnable()
     {
         StopSlice();
     }
-    
+
     private void OnDisable()
     {
         StopSlice();
     }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
@@ -39,7 +41,8 @@ private void OnEnable()
             ContinueSlice();
         }
     }
-private void StartSlice()
+
+    private void StartSlice()
     {
         Vector3 position = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         position.z = 0f;
@@ -50,13 +53,15 @@ private void StartSlice()
         sliceTrail.enabled = true;
         sliceTrail.Clear();
     }
-     private void StopSlice()
+
+    private void StopSlice()
     {
         slicing = false;
         sliceCollider.enabled = false;
         sliceTrail.enabled = false;
     }
- private void ContinueSlice()
+
+    private void ContinueSlice()
     {
         Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0f;
