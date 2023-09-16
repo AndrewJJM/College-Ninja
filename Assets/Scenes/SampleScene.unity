@@ -214,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397049455}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -471,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135621488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -586,9 +586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OggUniPrefabs:
-  - {fileID: 6301146614740293140, guid: e96de2e2dcf7004418e1f5ab247b5c4f, type: 3}
-  - {fileID: 6380790708393526947, guid: bbc95af099b8f6d43ac814675e44c10d, type: 3}
-  - {fileID: 6380790708393526947, guid: 8ad172ab16b477542ba38be68493e474, type: 3}
+  - {fileID: 6380790708393526947, guid: 53d3956d9e2eca3449b948f6787ead32, type: 3}
+  - {fileID: 6380790708393526947, guid: ea4fdce6bb1f77142aee999dc34b892c, type: 3}
   bombaPrefab: {fileID: 4832955661617707656, guid: b5f75a1932ebb084188fd1cf382ad082,
     type: 3}
   bombaChance: 0.05
@@ -606,15 +605,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189088479}
-  m_LocalRotation: {x: 0.087072834, y: -0.04345342, z: 0.0038016832, w: 0.9952466}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1135621489}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 10, y: -5, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1189088484
 Light:
   m_ObjectHideFlags: 0
