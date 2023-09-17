@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -486,7 +486,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135621488}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -568,8 +568,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189088479}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -586,8 +586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OggUniPrefabs:
-  - {fileID: 6380790708393526947, guid: 53d3956d9e2eca3449b948f6787ead32, type: 3}
-  - {fileID: 6380790708393526947, guid: ea4fdce6bb1f77142aee999dc34b892c, type: 3}
+  - {fileID: 1221382660601609553, guid: 0f97b2b6a4cf0a145aa6f4efc943ec45, type: 3}
+  - {fileID: 1221382660601609553, guid: 0f6bf543c08e64d48b8c6067a43e009a, type: 3}
   bombaPrefab: {fileID: 4832955661617707656, guid: b5f75a1932ebb084188fd1cf382ad082,
     type: 3}
   bombaChance: 0.05
@@ -595,8 +595,8 @@ MonoBehaviour:
   maxSpawnDelay: 1
   minAngolo: -15
   maxAngolo: 15
-  minForza: 18
-  maxForza: 22
+  minForza: 15
+  maxForza: 18
   maxLifetime: 5
 --- !u!4 &1189088483
 Transform:
