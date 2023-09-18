@@ -46,7 +46,7 @@ public class GestioneOggett : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Blade blade = other.GetComponent<Blade>();
+            Lama blade = other.GetComponent<Lama>();
             Slice(blade.direction, blade.transform.position, blade.sliceForce);
         }
     }

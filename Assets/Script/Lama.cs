@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Blade : MonoBehaviour
+public class Lama : MonoBehaviour
 {
-    public Vector3 direction { get; private set; }
+    public Vector3 direction { get; private set; } //Lasciare pubblico
 
     private Camera mainCamera;
 
