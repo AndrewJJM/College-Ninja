@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Blade : MonoBehaviour
@@ -49,9 +50,12 @@ public class Blade : MonoBehaviour
 
     private void StartSlice()
     {
-        Vector3 coordinate = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        coordinate.z = 0f;
-        transform.position = coordinate;
+        Vector3 position = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        position.z = 0f;
+        transform.position = position;
+
+        Debug.Log(position);
+        Debug.Log(Input.mousePosition);
 
         slicing = true;
         sliceCollider.enabled = true;
@@ -68,15 +72,15 @@ public class Blade : MonoBehaviour
 
     private void ContinueSlice()
     {
-        Vector3 newCoordinate = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        newCoordinate.z = 0f;
+        Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        newPosition.z = 0f;
 
-        direction = newCoordinate - transform.position;
+        direction = newPosition - transform.position;
 
         float velocity = direction.magnitude / Time.deltaTime;
         sliceCollider.enabled = velocity > minSliceVelocity;
 
-        transform.position = newCoordinate;
+        transform.position = newPosition;
     }
 
 }
