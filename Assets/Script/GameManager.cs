@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        ClearScene();
+        // TODO: ClearScene();
 
         blade.enabled = true;
         spawner.enabled = true;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    private void ClearScene()
+    /*TODO: private void ClearScene()
     {
         Fruit[] fruits = FindObjectsOfType<Fruit>();
 
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             Destroy(fruit.gameObject);
         }
 
-    }
+    }*/
     public void IncreaseScore(int points)
     {
         score += points;
