@@ -33,20 +33,25 @@ public class Blade : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             StartSlice();
-        } else if (Input.GetMouseButtonUp(0)) {
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
             StopSlice();
-        } else if (slicing) {
+        }
+        else if (slicing)
+        {
             ContinueSlice();
         }
     }
 
     private void StartSlice()
     {
-        Vector3 position = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        position.z = 0f;
-        transform.position = position;
+        Vector3 coordinate = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        coordinate.z = 0f;
+        transform.coordinate = coordinate;
 
         slicing = true;
         sliceCollider.enabled = true;
@@ -63,15 +68,15 @@ public class Blade : MonoBehaviour
 
     private void ContinueSlice()
     {
-        Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        newPosition.z = 0f;
+        Vector3 newCoordinate = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        newCoordinate.z = 0f;
 
-        direction = newPosition - transform.position;
+        direction = newCoordinate - transform.coordinate;
 
         float velocity = direction.magnitude / Time.deltaTime;
         sliceCollider.enabled = velocity > minSliceVelocity;
 
-        transform.position = newPosition;
+        transform.coordinate = newCoordinate;
     }
 
 }
