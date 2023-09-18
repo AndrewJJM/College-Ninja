@@ -2,43 +2,46 @@ using UnityEngine;
 
 public class GestioneOggett : MonoBehaviour
 {
+    
     public GameObject whole;
-       public GameObject sliced;
+    public GameObject sliced;
 
-       private Rigidbody fruitRigidbody;
-       private Collider fruitCollider;
-       private ParticleSystem juiceEffect;
+       private Rigidbody objectRigidbody;
+       private Collider objectCollider;
+       
+       private ParticleSystem Effect;
 
        public int points = 1;
+
  private void Awake()
     {
-        fruitRigidbody = GetComponent<Rigidbody>();
-        fruitCollider = GetComponent<Collider>();
-        juiceEffect = GetComponentInChildren<ParticleSystem>();
+        objectRigidbody = GetComponent<Rigidbody>();
+        objectCollider = GetComponent<Collider>();
+        Effect = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Slice(Vector3 direction, Vector3 position, float force)
     {
         // TODO: FindObjectOfType<GameManager>().IncreaseScore(points);
 
-        // Disable the whole fruit
-        fruitCollider.enabled = false;
+        // Disabilita l'intero oggetto
+        objectCollider.enabled = false;
         whole.SetActive(false);
 
-        // Enable the sliced fruit
+        // Abilita l'oggetto tagliato 
         sliced.SetActive(true);
-        juiceEffect.Play();
+        Effect.Play();
 
-        // Rotate based on the slice angle
+        // Ruota in base all'angolo di taglio 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         sliced.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
         Rigidbody[] slices = sliced.GetComponentsInChildren<Rigidbody>();
 
-        // Add a force to each slice based on the blade direction
+        // Aggiungi una forza a ogni fetta in base alla direzione della lama 
         foreach (Rigidbody slice in slices)
         {
-            slice.velocity = fruitRigidbody.velocity;
+            slice.velocity = objectRigidbody.velocity;
             slice.AddForceAtPosition(direction * force, position, ForceMode.Impulse);
         }
     }
