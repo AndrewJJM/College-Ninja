@@ -45,12 +45,6 @@ public class GameManager : MonoBehaviour
             Destroy(fruit.gameObject);
         }
 
-        Bomb[] bombs = FindObjectsOfType<Bomb>();
-
-        foreach (Bomb bomb in bombs)
-        {
-            Destroy(bomb.gameObject);
-        }
     }
     public void IncreaseScore(int points)
     {
