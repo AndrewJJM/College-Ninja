@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Lama : MonoBehaviour
+public class Blade : MonoBehaviour
 {
     public Vector3 direction { get; private set; } //Lasciare pubblico
 
@@ -51,7 +51,7 @@ public class Lama : MonoBehaviour
     {
         Vector3 coordinate = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         coordinate.z = 0f;
-        transform.coordinate = coordinate;
+        transform.position = coordinate;
 
         slicing = true;
         sliceCollider.enabled = true;
@@ -71,12 +71,12 @@ public class Lama : MonoBehaviour
         Vector3 newCoordinate = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         newCoordinate.z = 0f;
 
-        direction = newCoordinate - transform.coordinate;
+        direction = newCoordinate - transform.position;
 
         float velocity = direction.magnitude / Time.deltaTime;
         sliceCollider.enabled = velocity > minSliceVelocity;
 
-        transform.coordinate = newCoordinate;
+        transform.position = newCoordinate;
     }
 
 }
