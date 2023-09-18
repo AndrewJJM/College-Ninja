@@ -49,7 +49,7 @@ public class GestioneOggett : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Lama blade = other.GetComponent<Lama>();
+            Blade blade = other.GetComponent<Blade>();
             Slice(blade.direction, blade.transform.position, blade.sliceForce);
         }
     }
