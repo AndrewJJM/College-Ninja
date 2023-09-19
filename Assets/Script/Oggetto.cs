@@ -1,17 +1,17 @@
+using System;
 using UnityEngine;
 
-public class GestioneOggett : MonoBehaviour
-{
+public class Oggetto : MonoBehaviour {
     
     public GameObject whole;
     public GameObject sliced;
 
-       private Rigidbody objectRigidbody;
-       private Collider objectCollider;
+    private Rigidbody objectRigidbody;
+    private Collider objectCollider;
        
-       private ParticleSystem Effect;
+    private ParticleSystem Effect;
 
-       public int points = 1;
+    public int points = 1;
 
  private void Awake()
     {
@@ -30,7 +30,7 @@ public class GestioneOggett : MonoBehaviour
 
         // Abilita l'oggetto tagliato 
         sliced.SetActive(true);
-        Effect.Play();
+        //TODO: Effect.Play();
 
         // Ruota in base all'angolo di taglio 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

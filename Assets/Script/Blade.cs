@@ -54,9 +54,6 @@ public class Blade : MonoBehaviour
         position.z = 0f;
         transform.position = position;
 
-        Debug.Log(position);
-        Debug.Log(Input.mousePosition);
-
         slicing = true;
         sliceCollider.enabled = true;
         sliceTrail.enabled = true;
