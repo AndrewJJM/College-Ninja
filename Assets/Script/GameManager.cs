@@ -20,10 +20,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        NewGame();
+        //NewGame(GetScoreText());
     }
 
-    private void NewGame()
+    private Text GetScoreText()
+    {
+        return scoreText;
+    }
+
+    private void NewGame(Text scoreText)
     {
         Time.timeScale = 1f;
 
@@ -79,7 +84,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1f);
 
-        NewGame();
+        NewGame(GetScoreText());
 
         elapsed = 0f;
 
