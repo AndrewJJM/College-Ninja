@@ -3,6 +3,7 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 /[Ll]ibrary/
+/TextMesh Pro/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
@@ -71,3 +72,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 .vscode/settings.json
+Assets/.DS_Store
+Assets/.DS_Store
+Assets/.DS_Store
+Assets/TextMesh Pro
+Assets/.DS_Store
+Assets/TextMesh Pro.meta
