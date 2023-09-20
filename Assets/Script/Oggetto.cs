@@ -22,7 +22,7 @@ public class Oggetto : MonoBehaviour {
 
     private void Slice(Vector3 direction, Vector3 position, float force)
     {
-        // TODO: FindObjectOfType<GameManager>().IncreaseScore(points);
+        FindObjectOfType<GameManager>().IncreaseScore(points); //aggiungi punti
 
         // Disabilita l'intero oggetto
         objectCollider.enabled = false;
