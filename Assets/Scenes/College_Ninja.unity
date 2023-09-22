@@ -566,13 +566,14 @@ MonoBehaviour:
   OggUniPrefabs:
   - {fileID: 1221382660601609553, guid: 0f97b2b6a4cf0a145aa6f4efc943ec45, type: 3}
   - {fileID: 1221382660601609553, guid: 0f6bf543c08e64d48b8c6067a43e009a, type: 3}
+  - {fileID: 3410818635644918491, guid: 241d29488c645c943b5e23df221a3f21, type: 3}
   bombaPrefab: {fileID: 4832955661617707656, guid: b5f75a1932ebb084188fd1cf382ad082,
     type: 3}
   bombaChance: 0.05
   minSpawnDelay: 0.25
   maxSpawnDelay: 1
-  minAngolo: -15
-  maxAngolo: 15
+  minAngolo: -100.9
+  maxAngolo: 100.5
   minForza: 15
   maxForza: 18
   maxLifetime: 5

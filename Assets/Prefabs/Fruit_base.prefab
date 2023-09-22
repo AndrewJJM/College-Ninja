@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruit_Whole
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 80bebf16bd5a2e94c81865bbeef9d31a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80bebf16bd5a2e94c81865bbeef9d31a, type: 3}
 --- !u!1 &4801954253879653308 stripped
@@ -231,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8f76b070c680e8b4aa14025f3dc3cc3f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f76b070c680e8b4aa14025f3dc3cc3f, type: 3}
