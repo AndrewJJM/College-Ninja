@@ -143,17 +143,17 @@ PrefabInstance:
     - target: {fileID: 5222215162835895554, guid: b5f75a1932ebb084188fd1cf382ad082,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5222215162835895554, guid: b5f75a1932ebb084188fd1cf382ad082,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5222215162835895554, guid: b5f75a1932ebb084188fd1cf382ad082,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5222215162835895554, guid: b5f75a1932ebb084188fd1cf382ad082,
         type: 3}
@@ -208,7 +208,7 @@ PrefabInstance:
     - target: {fileID: 5222215162835895554, guid: b5f75a1932ebb084188fd1cf382ad082,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5692667386102981801, guid: b5f75a1932ebb084188fd1cf382ad082,
         type: 3}
@@ -716,7 +716,7 @@ MonoBehaviour:
   - {fileID: 1221382660601609553, guid: 0f6bf543c08e64d48b8c6067a43e009a, type: 3}
   bombaPrefab: {fileID: 4832955661617707656, guid: b5f75a1932ebb084188fd1cf382ad082,
     type: 3}
-  bombaChance: 1
+  bombaChance: 0.15
   minSpawnDelay: 0.25
   maxSpawnDelay: 1
   minAngolo: -15
