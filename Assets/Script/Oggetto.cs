@@ -17,7 +17,7 @@ public class Oggetto : MonoBehaviour {
     {
         objectRigidbody = GetComponent<Rigidbody>();
         objectCollider = GetComponent<Collider>();
-        Effect = GetComponentInChildren<ParticleSystem>();
+        // TODO: Effect = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Slice(Vector3 direction, Vector3 position, float force)
@@ -33,8 +33,8 @@ public class Oggetto : MonoBehaviour {
         //TODO: Effect.Play();
 
         // Ruota in base all'angolo di taglio 
-        /*float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        sliced.transform.rotation = Quaternion.Euler(0f, 0f, angle);*/
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        sliced.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
         Rigidbody[] slices = sliced.GetComponentsInChildren<Rigidbody>();
 

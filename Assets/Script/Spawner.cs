@@ -54,7 +54,7 @@ public class Spawner : MonoBehaviour
             coordinate.y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
             coordinate.z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
 
-            Quaternion rotazione = Quaternion.Euler(0f, 0f, Random.Range(minAngolo, maxAngolo));
+            Quaternion rotazione = Quaternion.Euler(0f, 90f, Random.Range(minAngolo, maxAngolo));
 
             GameObject OggUni = Instantiate(prefab, coordinate, rotazione);
             Destroy(OggUni, maxLifetime);
