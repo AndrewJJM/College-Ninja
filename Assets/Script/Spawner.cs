@@ -1,12 +1,12 @@
-using System.Collections;
+ using System.Collections;
 using UnityEngine;
 
 
 public class Spawner : MonoBehaviour
 {
-    private Collider spawnArea;
+    private Collider spawnArea; 
 
-    [SerializeField] private  GameObject[] OggUniPrefabs;
+    [SerializeField] private  GameObject[] PrefabOggetti;
     [SerializeField] private  GameObject bombaPrefab;
     [Range(0f, 1f)] public float bombaChance = 0.05f;
 
@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
 
         while (enabled)
         {
-            GameObject prefab = OggUniPrefabs[Random.Range(0, OggUniPrefabs.Length)];
+            GameObject prefab =  PrefabOggetti[Random.Range(0, PrefabOggetti.Length)];
 
             if (Random.value < bombaChance) { 
                 prefab = bombaPrefab;
@@ -53,16 +53,23 @@ public class Spawner : MonoBehaviour
             coordinate.x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
             coordinate.y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
             coordinate.z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
+            //angolo di lancio
+            Quaternion rotazione = Quaternion.Euler(0f, 0f, Random.Range(minAngolo, maxAngolo));
 
-            Quaternion rotazione = Quaternion.Euler(0f, 90f, Random.Range(minAngolo, maxAngolo));
+            GameObject Oggetto = Instantiate(prefab, coordinate, rotazione);
+            Destroy(Oggetto, maxLifetime);
 
-            GameObject OggUni = Instantiate(prefab, coordinate, rotazione);
-            Destroy(OggUni, maxLifetime);
-
+            //forza di lancio
             float forza = Random.Range(minForza, maxForza);
-            OggUni.GetComponent<Rigidbody>().AddForce(OggUni.transform.up * forza, ForceMode.Impulse);
+            Oggetto.GetComponent<Rigidbody>().AddForce(Oggetto.transform.up * forza, ForceMode.Impulse);
+            
+            //rotazione random del gameObject sull'asse delle z
+            //Oggetto.transform.rotation = Quaternion.Euler (Random.Range(-90f, 90f), 90f , 0f); 
+
+
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         }
     }
+    /*troy è stato qui*/
 }
