@@ -53,6 +53,7 @@ public class Spawner : MonoBehaviour
             coordinate.x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
             coordinate.y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
             coordinate.z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
+
             //angolo di lancio
             Quaternion rotazione = Quaternion.Euler(0f, 0f, Random.Range(minAngolo, maxAngolo));
 
@@ -62,9 +63,11 @@ public class Spawner : MonoBehaviour
             //forza di lancio
             float forza = Random.Range(minForza, maxForza);
             Oggetto.GetComponent<Rigidbody>().AddForce(Oggetto.transform.up * forza, ForceMode.Impulse);
-            
-            //rotazione random del gameObject sull'asse delle z
-            //Oggetto.transform.rotation = Quaternion.Euler (Random.Range(-90f, 90f), 90f , 0f); 
+            Oggetto.GetComponent<Rigidbody>().AddTorque(Oggetto.transform.up * 30f);
+
+
+            //rotazione random del gameObject sull'asse delle y
+            //Oggetto.transform.Rotate(Vector3.up * 30f * Time.deltaTime);
 
 
 
