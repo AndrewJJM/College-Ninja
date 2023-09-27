@@ -17,7 +17,7 @@ public class Oggetto : MonoBehaviour {
     {
         objectRigidbody = GetComponent<Rigidbody>();
         objectCollider = GetComponent<Collider>();
-        Effect = GetComponentInChildren<ParticleSystem>();
+        // TODO: Effect = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Slice(Vector3 direction, Vector3 position, float force)
