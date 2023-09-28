@@ -10,6 +10,9 @@ public class Blade : MonoBehaviour
     private Collider sliceCollider;
     private TrailRenderer sliceTrail;
 
+    public GameObject punta_lama;
+    public GameObject base_lama;
+
     public float sliceForce = 5f;
     public float minSliceVelocity = 0.01f;
 
@@ -80,4 +83,8 @@ public class Blade : MonoBehaviour
         transform.position = newPosition;
     }
 
+    public void getPianoTaglio()
+    {
+        
+    }
 }
