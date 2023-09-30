@@ -20,11 +20,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float maxForza= 22f;
 
     [SerializeField] private float maxLifetime = 5f;
+    private int SliceableLayer;
 
-    
+
     private void Awake()
     {
         spawnArea = GetComponent<Collider>();
+        SliceableLayer = LayerMask.NameToLayer("Sliceable");
     }
 
     private void OnEnable()
@@ -44,6 +46,8 @@ public class Spawner : MonoBehaviour
         while (enabled)
         {
             GameObject prefab =  PrefabOggetti[Random.Range(0, PrefabOggetti.Length)];
+
+            prefab.layer = SliceableLayer;
 
             if (Random.value < bombaChance) { 
                 prefab = bombaPrefab;
