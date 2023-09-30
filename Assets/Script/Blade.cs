@@ -11,7 +11,6 @@ public class Blade : MonoBehaviour
     private Collider sliceCollider;
     private TrailRenderer sliceTrail;
 
-    public float sliceForce = 5f;
     public float minSliceVelocity = 0.01f;
 
     private bool slicing;
@@ -19,11 +18,13 @@ public class Blade : MonoBehaviour
     public Transform inizio_lama;
     public Transform fine_lama;
 
+    [SerializeField] private float maxLifetime = 3f;
+
 
     //importato da sliceObject
     public VelocityEstimator velocityEstimator;
     public Material CrossSection;
-    public float ForzaTaglio = 2000f;
+    public float ForzaTaglio = 10f;
 
 
     private void Awake()
@@ -57,6 +58,7 @@ public class Blade : MonoBehaviour
         {
             ContinueSlice();
         }
+
     }
 
     private void StartSlice()
@@ -103,6 +105,7 @@ public class Blade : MonoBehaviour
 
     private void Slice(GameObject target)
     {
+        //Rigidbody objectRigidbody = target.GetComponent<Rigidbody>();
         Vector3 velocita = velocityEstimator.GetVelocityEstimate();
         Vector3 normalePiano = Vector3.Cross(inizio_lama.position - fine_lama.position, velocita);
         normalePiano.Normalize();
@@ -111,19 +114,28 @@ public class Blade : MonoBehaviour
 
         if (hull != null)
         {
-            GameObject upperHull = hull.CreateUpperHull(target, CrossSection);
-            ImpostaTaglio(upperHull);
-            GameObject lowerHull = hull.CreateLowerHull(target, CrossSection);
-            ImpostaTaglio(lowerHull);
+            GameObject[] slices = new GameObject[2];
+            slices[0] = hull.CreateUpperHull(target, CrossSection);
+            slices[1] = hull.CreateLowerHull(target, CrossSection);
             Destroy(target);
+            ImpostaTaglio(slices, this.direction, this.transform.position);
+
+
         }
     }
 
-    private void ImpostaTaglio(GameObject pezzoTagliato)
+    private void ImpostaTaglio(GameObject[] pezziTagliati, Vector3 direzione, Vector3 posizione)
     {
-        Rigidbody rb = pezzoTagliato.AddComponent<Rigidbody>();
-        MeshCollider collider = pezzoTagliato.AddComponent<MeshCollider>();
-        collider.convex = true;
-        rb.AddExplosionForce(ForzaTaglio, pezzoTagliato.transform.position, 1);
+        foreach (GameObject slice in pezziTagliati)
+        {
+            Rigidbody rb = slice.AddComponent<Rigidbody>();
+            MeshCollider collider = slice.AddComponent<MeshCollider>();
+            collider.convex = true;
+            //collider.isTrigger = true; // dopo averlo tagliato, non interagisce più fisicamente: non funziona
+            //rb.AddExplosionForce(ForzaTaglio, slice.transform.position, 1);   implementazione vecchia
+            rb.AddForceAtPosition(direzione * ForzaTaglio, posizione, ForceMode.Impulse);
+            Destroy(slice, maxLifetime);
+        }
+        
     }
 }

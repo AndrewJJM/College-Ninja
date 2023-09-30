@@ -50,7 +50,7 @@ public class Oggetto : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             Blade blade = other.GetComponent<Blade>();
-            Slice(blade.direction, blade.transform.position, blade.sliceForce);
+            Slice(blade.direction, blade.transform.position, blade.ForzaTaglio);
         }
     }
 }
