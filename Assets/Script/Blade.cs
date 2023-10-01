@@ -87,8 +87,9 @@ public class Blade : MonoBehaviour
 
 
         direction = newPosition - transform.position;
-
-        float velocity = direction.magnitude / Time.deltaTime;
+        Debug.Log(direction.magnitude); // di base non vede la direzione
+        float velocity = direction.magnitude / Time.fixedDeltaTime;
+        
         sliceCollider.enabled = velocity > minSliceVelocity;
 
         transform.position = newPosition;
