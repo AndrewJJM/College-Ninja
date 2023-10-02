@@ -1,12 +1,12 @@
-using System.Collections;
+ using System.Collections;
 using UnityEngine;
 
 
 public class Spawner : MonoBehaviour
 {
-    private Collider spawnArea;
+    private Collider spawnArea; 
 
-    [SerializeField] private  GameObject[] OggUniPrefabs;
+    [SerializeField] private  GameObject[] PrefabOggetti;
     [SerializeField] private  GameObject bombaPrefab;
     [Range(0f, 1f)] public float bombaChance = 0.05f;
 
@@ -20,11 +20,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float maxForza= 22f;
 
     [SerializeField] private float maxLifetime = 5f;
+    private int SliceableLayer;
 
-    
+
     private void Awake()
     {
         spawnArea = GetComponent<Collider>();
+        SliceableLayer = LayerMask.NameToLayer("Sliceable");
     }
 
     private void OnEnable()
@@ -43,7 +45,9 @@ public class Spawner : MonoBehaviour
 
         while (enabled)
         {
-            GameObject prefab = OggUniPrefabs[Random.Range(0, OggUniPrefabs.Length)];
+            GameObject prefab =  PrefabOggetti[Random.Range(0, PrefabOggetti.Length)];
+
+            prefab.layer = SliceableLayer;
 
             if (Random.value < bombaChance) { 
                 prefab = bombaPrefab;
@@ -54,15 +58,25 @@ public class Spawner : MonoBehaviour
             coordinate.y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
             coordinate.z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
 
+            //angolo di lancio
             Quaternion rotazione = Quaternion.Euler(0f, 0f, Random.Range(minAngolo, maxAngolo));
 
-            GameObject OggUni = Instantiate(prefab, coordinate, rotazione);
-            Destroy(OggUni, maxLifetime);
+            GameObject Oggetto = Instantiate(prefab, coordinate, rotazione);
+            Destroy(Oggetto, maxLifetime);
 
+            //forza di lancio
             float forza = Random.Range(minForza, maxForza);
-            OggUni.GetComponent<Rigidbody>().AddForce(OggUni.transform.up * forza, ForceMode.Impulse);
+            Oggetto.GetComponent<Rigidbody>().AddForce(Oggetto.transform.up * forza, ForceMode.Impulse);
+            Oggetto.GetComponent<Rigidbody>().AddTorque(Oggetto.transform.up * 30f);
+
+
+            //rotazione random del gameObject sull'asse delle y
+            //Oggetto.transform.Rotate(Vector3.up * 30f * Time.deltaTime);
+
+
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         }
     }
+    /*troy è stato qui*/
 }
