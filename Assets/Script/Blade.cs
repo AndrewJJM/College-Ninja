@@ -58,10 +58,9 @@ public class Blade : MonoBehaviour
         {
             ContinueSlice();
         }
-
     }
 
-    private void StartSlice()
+    private Vector3 StartSlice()
     {
         Vector3 position = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         position.z = 0f;
@@ -71,6 +70,7 @@ public class Blade : MonoBehaviour
         sliceCollider.enabled = true;
         sliceTrail.enabled = true;
         sliceTrail.Clear();
+        return this.transform.position;
     }
 
     private void StopSlice()
@@ -87,10 +87,7 @@ public class Blade : MonoBehaviour
 
 
         direction = newPosition - transform.position;
-        Debug.Log(direction.magnitude); // di base non vede la direzione
-        float velocity = direction.magnitude / Time.fixedDeltaTime;
-        
-        sliceCollider.enabled = velocity > minSliceVelocity;
+        sliceCollider.enabled = direction != Vector3.zero;
 
         transform.position = newPosition;
     }
@@ -99,7 +96,7 @@ public class Blade : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
-            Blade blade = other.GetComponent<Blade>();
+            //Blade blade = other.GetComponent<Blade>();
             Slice(other.gameObject);
         }
     }
@@ -134,7 +131,7 @@ public class Blade : MonoBehaviour
             collider.convex = true;
             //collider.isTrigger = true; // dopo averlo tagliato, non interagisce più fisicamente: non funziona
             //rb.AddExplosionForce(ForzaTaglio, slice.transform.position, 1);   implementazione vecchia
-            rb.AddForceAtPosition(direzione * ForzaTaglio, posizione, ForceMode.Impulse);
+            rb.AddForceAtPosition(direzione.normalized * ForzaTaglio, posizione, ForceMode.Impulse);
             Destroy(slice, maxLifetime);
         }
         
