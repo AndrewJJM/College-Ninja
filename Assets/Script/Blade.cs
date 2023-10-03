@@ -103,7 +103,6 @@ public class Blade : MonoBehaviour
 
     private void Slice(GameObject target)
     {
-        //Rigidbody objectRigidbody = target.GetComponent<Rigidbody>();
         Vector3 velocita = velocityEstimator.GetVelocityEstimate();
         Vector3 normalePiano = Vector3.Cross(inizio_lama.position - fine_lama.position, velocita);
         normalePiano.Normalize();
@@ -117,9 +116,9 @@ public class Blade : MonoBehaviour
             slices[1] = hull.CreateLowerHull(target, CrossSection);
             Destroy(target);
             ImpostaTaglio(slices, this.direction, this.transform.position);
-
-
         }
+
+        FindObjectOfType<GameManager>().IncreaseScore(1);
     }
 
     private void ImpostaTaglio(GameObject[] pezziTagliati, Vector3 direzione, Vector3 posizione)

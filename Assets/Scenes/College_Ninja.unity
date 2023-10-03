@@ -714,7 +714,7 @@ MonoBehaviour:
   bombaPrefab: {fileID: 4832955661617707656, guid: b5f75a1932ebb084188fd1cf382ad082,
     type: 3}
   bombaChance: 0.095
-  minSpawnDelay: 1
+  minSpawnDelay: 0.01
   maxSpawnDelay: 3
   minAngolo: -15
   maxAngolo: 15

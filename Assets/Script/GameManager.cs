@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private Blade blade;
     private Spawner spawner;
 
-private int score;
+    private int score;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ private int score;
 
     private void Start()
     {
-        NewGame( );
+        NewGame();
     }
 
     private Text GetScoreText()
@@ -88,6 +88,7 @@ private int score;
             elapsed += Time.unscaledDeltaTime;
 
             yield return null;
+
         }
 
         yield return new WaitForSecondsRealtime(1f);
