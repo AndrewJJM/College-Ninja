@@ -42,6 +42,7 @@ public class LoginPagePlayfab : MonoBehaviour
     #region Buttom Functions
     public void RegisterUser()
     {
+        // Se la password è minore di 6 caratteri genera un messaggio
         var request = new RegisterPlayFabUserRequest
         {
             DisplayName = UsernameRegisterInput.text,
@@ -56,12 +57,13 @@ public class LoginPagePlayfab : MonoBehaviour
 
     private void OnError(PlayFabError Error)
     {
-        throw new NotImplementedException();
+        MessageText.text = Error.ErrorMessage;
+        Debug.Log(Error.GenerateErrorReport());
     }
 
     private void OnregisterSucces(RegisterPlayFabUserResult Result)
     {
-        
+        MessageText.text = "New Account Is Created";
     }
 
     public void OpenLoginPage()
