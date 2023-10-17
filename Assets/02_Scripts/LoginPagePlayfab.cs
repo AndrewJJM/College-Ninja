@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using PlayFab;
 
 public class LoginPagePlayfab : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class LoginPagePlayfab : MonoBehaviour
     }
     public void OpenRecoveryPage()
     {
-        LoginPage.SetActive(true);
+        LoginPage.SetActive(false);
         RegisterPage.SetActive(false);
         RecoveryPage.SetActive(true);
         TopText.text = "Recovery";
