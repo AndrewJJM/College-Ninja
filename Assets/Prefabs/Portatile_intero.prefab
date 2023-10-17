@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2177248489196741408}
   - component: {fileID: 3534465357860833723}
   - component: {fileID: 2594715237325390666}
+  - component: {fileID: 7288203287654876257}
   m_Layer: 6
   m_Name: Portatile_intero
   m_TagString: Untagged
@@ -114,3 +115,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 180.4981, y: 210.40709, z: 116.73126}
   m_Center: {x: -5.2166474e-13, y: 0.000007629397, z: 4.5474735e-13}
+--- !u!114 &7288203287654876257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376014865174381301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f85a599e99303e4294eea7811107709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 1
