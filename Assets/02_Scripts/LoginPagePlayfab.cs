@@ -6,6 +6,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoginPagePlayfab : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class LoginPagePlayfab : MonoBehaviour
     [SerializeField] TMP_InputField EmailRecoveryInput;
     [SerializeField] GameObject RecoveryPage;
 
+    [SerializeField]
+    private GameObject WelcomeObject;
+    [SerializeField]
+    private TextMeshProUGUI WelcomeText;
 
 
     void Start()
@@ -61,14 +66,29 @@ public class LoginPagePlayfab : MonoBehaviour
         {
             Email = EmailLoginInput.text,
             Password = PasswordLoginInput.text,
+
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+            {
+                GetPlayerProfile = true
+            }
         };
         PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
     }
 
     private void OnLoginSuccess(LoginResult result)
     {
-        MessageText.text = "Login in";
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        string name = null;
+
+        if (result.InfoResultPayload != null)
+        {
+            name = result.InfoResultPayload.PlayerProfile.DisplayName;
+        }
+
+        WelcomeObject.SetActive(true);
+
+        //Testo di benvenuto
+        WelcomeText.text = "Welcome " + name;
+        StartCoroutine(LoadNextScene());
     }
     public void RecoverUser()
     {
@@ -124,4 +144,11 @@ public class LoginPagePlayfab : MonoBehaviour
         TopText.text = "Recovery";
     }
     #endregion
+
+    IEnumerator LoadNextScene()
+    {
+        yield return new WaitForSeconds(2);
+        MessageText.text = "Loggin in";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
