@@ -5,6 +5,7 @@ using TMPro;
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LoginPagePlayfab : MonoBehaviour
 {
@@ -53,6 +54,41 @@ public class LoginPagePlayfab : MonoBehaviour
 
         };
         PlayFabClientAPI.RegisterPlayFabUser(request, OnregisterSucces, OnError);
+    }
+    public void Login()
+    {
+        var request = new LoginWithEmailAddressRequest
+        {
+            Email = EmailLoginInput.text,
+            Password = PasswordLoginInput.text,
+        };
+        PlayFabClientAPI.LoginWithEmailAddress(request, OnLoginSuccess, OnError);
+    }
+
+    private void OnLoginSuccess(LoginResult result)
+    {
+        MessageText.text = "Login in";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void RecoverUser()
+    {
+        var request = new SendAccountRecoveryEmailRequest
+        {
+            Email = EmailRecoveryInput.text,
+            TitleId = "6EE70",
+        };
+        PlayFabClientAPI.SendAccountRecoveryEmail(request, OnRecoverySuccess, OnErrorRecovery);
+    }
+
+    private void OnErrorRecovery(PlayFabError result)
+    {
+        MessageText.text = "No Email Found";
+    }
+
+    private void OnRecoverySuccess(SendAccountRecoveryEmailResult obj)
+    {
+        OpenLoginPage();
+        MessageText.text = "Recovery Mail Sent";
     }
 
     private void OnError(PlayFabError Error)
