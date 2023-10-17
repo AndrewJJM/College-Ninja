@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using PlayFab;
+using PlayFab.ClientModels;
+using System;
 
 public class LoginPagePlayfab : MonoBehaviour
 {
@@ -38,6 +40,30 @@ public class LoginPagePlayfab : MonoBehaviour
 
     }
     #region Buttom Functions
+    public void RegisterUser()
+    {
+        var request = new RegisterPlayFabUserRequest
+        {
+            DisplayName = UsernameRegisterInput.text,
+            Email = EmailRegisterInput.text,
+            Password = PasswordRegisterInput.text,
+
+            RequireBothUsernameAndEmail = false
+
+        };
+        PlayFabClientAPI.RegisterPlayFabUser(request, OnregisterSucces, OnError);
+    }
+
+    private void OnError(PlayFabError Error)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void OnregisterSucces(RegisterPlayFabUserResult Result)
+    {
+        
+    }
+
     public void OpenLoginPage()
     {
         LoginPage.SetActive(true);
