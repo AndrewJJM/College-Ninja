@@ -19,8 +19,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minForza = 18f;
     [SerializeField] private float maxForza= 22f;
 
-    [SerializeField] private float torque_value = 30f;
-
     [SerializeField] private float maxLifetime = 5f;
     private int SliceableLayer;
 
