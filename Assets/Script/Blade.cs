@@ -18,7 +18,7 @@ public class Blade : MonoBehaviour
     public Transform inizio_lama;
     public Transform fine_lama;
 
-    [SerializeField] private float maxLifetime = 3f;
+    [SerializeField] private float maxLifetime = 2f;
 
 
     //importato da sliceObject
@@ -116,9 +116,10 @@ public class Blade : MonoBehaviour
             slices[1] = hull.CreateLowerHull(target, CrossSection);
             Destroy(target);
             ImpostaTaglio(slices, this.direction, this.transform.position);
+            FindAnyObjectByType<GameManager>().IncreaseScore(1);
+
         }
 
-        FindObjectOfType<GameManager>().IncreaseScore(1);
     }
 
     private void ImpostaTaglio(GameObject[] pezziTagliati, Vector3 direzione, Vector3 posizione)
