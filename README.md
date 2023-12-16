@@ -7,10 +7,14 @@ Ruoli:
 - Schermata di pausa - Alessia
 - schermata di game over - Alessia
 
+- Login + Registrazione - Andrew
+- Punteggio - Andrew
 - Nuovi oggetti - Andrew
 - Colore oggetti - Andrew
-- Correzione bug - Andrew
+ 
 - Sfondi coerenti (trovarli e selezionarli) - Elena
+- Grafica per menu e bottoni - Elena
+- Logo - Elena
 
 EXTRA:
 - 3 Vite
@@ -26,4 +30,10 @@ Possibili oggetti da far spawnare:
  - 30 (verde)
  - 17 (Rosso)
  - 18 (giallo)
+
+3 vite?
+
+Oggetti 3d vuoti dentro?
+
+
 
