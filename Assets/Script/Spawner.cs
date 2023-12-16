@@ -67,7 +67,7 @@ public class Spawner : MonoBehaviour
             //forza di lancio
             float forza = Random.Range(minForza, maxForza);
             Oggetto.GetComponent<Rigidbody>().AddForce(Oggetto.transform.up * forza, ForceMode.Impulse);
-            Oggetto.GetComponent<Rigidbody>().AddTorque(Oggetto.transform.up * 30f);
+            Oggetto.GetComponent<Rigidbody>().AddTorque(Random.Range(-80f, 80f), Random.Range(-80f, 80f), 0f);
 
 
             //rotazione random del gameObject sull'asse delle y

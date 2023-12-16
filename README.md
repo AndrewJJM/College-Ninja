@@ -31,6 +31,9 @@ Possibili oggetti da far spawnare:
  - 17 (Rosso)
  - 18 (giallo)
 
+3 vite?
+
+Oggetti 3d vuoti dentro?
 
 
 
