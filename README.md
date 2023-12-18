@@ -6,14 +6,14 @@ Ruoli:
 - Setting - Alessia
 - Schermata di pausa - Alessia
 - schermata di game over - Alessia
+- Slider volume ed effetti
 
-- Login + Registrazione - Andrew
-- Punteggio - Andrew
 - Nuovi oggetti - Andrew
 - Colore oggetti - Andrew
+- Risoluzione bug - Andrew
  
 - Sfondi coerenti (trovarli e selezionarli) - Elena
-- Grafica per menu e bottoni - Elena
+- Grafica per tasto play, chiudi e pausa - Elena
 - Logo - Elena
 
 EXTRA:
