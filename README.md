@@ -11,6 +11,8 @@ Ruoli:
 - Nuovi oggetti - Andrew
 - Colore oggetti - Andrew
 - Risoluzione bug - Andrew
+- Leaderboard - Andrew
+- Salvare l'account della persona in locale - Andrew
  
 - Sfondi coerenti (trovarli e selezionarli) - Elena
 - Grafica per tasto play, chiudi e pausa - Elena
