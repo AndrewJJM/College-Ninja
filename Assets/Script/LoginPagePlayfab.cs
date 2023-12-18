@@ -149,6 +149,6 @@ public class LoginPagePlayfab : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         MessageText.text = "Loggin in";
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(1); //da modificare in caso di ordine cambiato
     }
 }
