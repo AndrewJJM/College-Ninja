@@ -22,6 +22,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float maxLifetime = 5f;
     private int SliceableLayer;
 
+    
+
 
     private void Awake()
     {
