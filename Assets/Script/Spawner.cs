@@ -23,7 +23,6 @@ public class Spawner : MonoBehaviour
     private int SliceableLayer;
 
 
- 
     private void Awake()
     {
         spawnArea = GetComponent<Collider>();
