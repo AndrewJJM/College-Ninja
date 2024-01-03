@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: b544c2439ab5a4e72b6b70f6e4e387a9
   - enabled: 1
-    path: Assets/Scenes/College_Ninja.unity
+    path: Assets/Scenes/Game.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
   - enabled: 1
-    path: Assets/Scenes/LoginScena01.unity
+    path: Assets/Scenes/Login.unity
     guid: 8931da076f6ca4f4da6dbdf8138e003f
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,

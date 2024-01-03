@@ -1,4 +1,6 @@
- using System.Collections;
+using JetBrains.Annotations;
+using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 
@@ -10,8 +12,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private  GameObject bombaPrefab;
     [Range(0f, 1f)] public float bombaChance = 0.05f;
 
-    [SerializeField] private float minSpawnDelay = 0.25f;
-    [SerializeField] private float maxSpawnDelay = 1f;
+    [SerializeField] private float minSpawnDelay = 0.15f;
+    [SerializeField] private float maxSpawnDelay = 3f;
 
     [SerializeField] private float minAngolo = -15f;
     [SerializeField] private float maxAngolo = 15f;
@@ -20,18 +22,24 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float maxForza= 22f;
 
     [SerializeField] private float maxLifetime = 5f;
-    private int SliceableLayer;
+
+    //difficulty stats
+    [SerializeField] private float difficultyTimer = 30f;
+    [SerializeField] private float TargetBombChance = 0.445f;
+    [SerializeField] private float targetMaxSpawnDelay = 0.5f;
+
+
 
 
     private void Awake()
     {
         spawnArea = GetComponent<Collider>();
-        SliceableLayer = LayerMask.NameToLayer("Sliceable");
     }
 
     private void OnEnable()
     {
         StartCoroutine(Spawn());
+        StartCoroutine(IncrementaOgniTotSecondi());
     }
 
     private void OnDisable()
@@ -47,7 +55,6 @@ public class Spawner : MonoBehaviour
         {
             GameObject prefab =  PrefabOggetti[Random.Range(0, PrefabOggetti.Length)];
 
-            prefab.layer = SliceableLayer;
 
             if (Random.value < bombaChance) { 
                 prefab = bombaPrefab;
@@ -62,6 +69,8 @@ public class Spawner : MonoBehaviour
             Quaternion rotazione = Quaternion.Euler(0f, 0f, Random.Range(minAngolo, maxAngolo));
 
             GameObject Oggetto = Instantiate(prefab, coordinate, rotazione);
+            Oggetto.tag = "Sliceable";
+
             Destroy(Oggetto, maxLifetime);
 
             //forza di lancio
@@ -76,7 +85,30 @@ public class Spawner : MonoBehaviour
 
 
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
+
+
         }
+
+
+    }
+    private IEnumerator IncrementaOgniTotSecondi()
+    {
+
+
+            // Incrementa il valore finché non raggiunge il massimo e minimo per rendere più difficile il gioco
+            while (maxSpawnDelay > targetMaxSpawnDelay || bombaChance < TargetBombChance)
+            {
+                if (maxSpawnDelay > targetMaxSpawnDelay)
+                {
+                    maxSpawnDelay -= 0.50f;
+                }
+                if (bombaChance < TargetBombChance)
+                {
+                    bombaChance += 0.05f;
+                }
+
+            yield return new WaitForSeconds(difficultyTimer);
+            }
     }
     /*troy è stato qui*/
 }

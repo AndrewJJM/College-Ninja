@@ -44,14 +44,14 @@ public class GameManager : MonoBehaviour
 
     private void ClearScene()
     {
-        Oggetto[] oggetti = FindObjectsOfType<Oggetto>();
+        Oggetto[] oggetti = FindObjectsByType<Oggetto>(FindObjectsSortMode.None);
 
         foreach (Oggetto oggetto in oggetti)
         {
             Destroy(oggetto.gameObject);
         }
 
-        Bomba[] bombe = FindObjectsOfType<Bomba>();
+        Bomba[] bombe = FindObjectsByType<Bomba>(FindObjectsSortMode.None);
 
         foreach (Bomba bomba in bombe)
         {
@@ -67,8 +67,8 @@ public class GameManager : MonoBehaviour
 
     public void Explode()
     {
-        blade.enabled = false;
-        spawner.enabled = false;
+       blade.enabled = false;
+       spawner.enabled = false;
 
        StartCoroutine(ExplodeSequence());
     }
