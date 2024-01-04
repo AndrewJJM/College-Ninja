@@ -4,15 +4,13 @@ Progetto di mobile computing 2023
 Ruoli: 
 - Menù - Alessia	
 - Setting - Alessia
-- Schermata di pausa - Alessia
 - schermata di game over - Alessia
 - Slider volume ed effetti
 
 - Nuovi oggetti - Andrew
 - Colore oggetti - Andrew
 - Risoluzione bug - Andrew
-- Leaderboard - Andrew
-- Salvare l'account della persona in locale - Andrew
+- migliorare le connessioni fra le varie scene (valutare se è il caso di aggiungere frictionless login in tutte le scene)
  
 - Sfondi coerenti (trovarli e selezionarli) - Elena
 - Grafica per tasto play, chiudi e pausa - Elena
