@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     private Blade blade;
     private Spawner spawner;
+
+    [SerializeField] GameObject gameOverMenu;
 
     private int score;
 
@@ -30,7 +33,9 @@ public class GameManager : MonoBehaviour
     }
 
     private void NewGame()
-    {
+    {        
+        ClearScene();
+
         Time.timeScale = 1f;
 
         blade.enabled = true;
@@ -39,19 +44,18 @@ public class GameManager : MonoBehaviour
         score = 0;
         scoreText.text = score.ToString();
 
-        ClearScene();
     }
 
     private void ClearScene()
     {
-        Oggetto[] oggetti = FindObjectsOfType<Oggetto>();
+        Oggetto[] oggetti = FindObjectsByType<Oggetto>(FindObjectsSortMode.None);
 
         foreach (Oggetto oggetto in oggetti)
         {
             Destroy(oggetto.gameObject);
         }
 
-        Bomba[] bombe = FindObjectsOfType<Bomba>();
+        Bomba[] bombe = FindObjectsByType<Bomba>(FindObjectsSortMode.None);
 
         foreach (Bomba bomba in bombe)
         {
@@ -67,10 +71,13 @@ public class GameManager : MonoBehaviour
 
     public void Explode()
     {
-        blade.enabled = false;
-        spawner.enabled = false;
+       blade.enabled = false;
+       spawner.enabled = false;
 
        StartCoroutine(ExplodeSequence());
+
+        PlayFabManager.Instance.sendLeaderboard(score);  //salva punteggio sulla leaderboard
+                
     }
 
     private IEnumerator ExplodeSequence()
@@ -92,8 +99,9 @@ public class GameManager : MonoBehaviour
         }
 
         yield return new WaitForSecondsRealtime(1f);
-    
+
         NewGame();
+        openGameOverMenu();
 
         elapsed = 0f;
 
@@ -103,10 +111,17 @@ public class GameManager : MonoBehaviour
             float t = Mathf.Clamp01(elapsed / duration);
             fadeImage.color = Color.Lerp(Color.white, Color.clear, t);
 
-            elapsed += Time.unscaledDeltaTime;
+            elapsed += Time.unscaledDeltaTime; // era per l'effetto rallentatore
 
             yield return null;
         }
+        
+        
     }
 
+    private void openGameOverMenu()
+    {
+        gameOverMenu.SetActive(true);
+        Time.timeScale = 0; //da cambiare
     }
+}

@@ -7,6 +7,7 @@ using PlayFab.ClientModels;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using PlayFab.Internal;
 
 public class LoginPagePlayfab : MonoBehaviour
 {
@@ -29,15 +30,32 @@ public class LoginPagePlayfab : MonoBehaviour
     [SerializeField] TMP_InputField EmailRecoveryInput;
     [SerializeField] GameObject RecoveryPage;
 
+
     [SerializeField]
     private GameObject WelcomeObject;
     [SerializeField]
     private TextMeshProUGUI WelcomeText;
 
 
+    private const string _PlayFabRememberMeIdKey = "RememberMeId";
+    private string RememberMeId
+    {
+        get
+        {
+            return PlayerPrefs.GetString(_PlayFabRememberMeIdKey, "");
+        }
+        set
+        {
+            var guid = value ?? Guid.NewGuid().ToString();
+            PlayerPrefs.SetString(_PlayFabRememberMeIdKey, guid);
+        }
+    }
+
+
+
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -45,7 +63,7 @@ public class LoginPagePlayfab : MonoBehaviour
     {
 
     }
-    #region Buttom Functions
+    #region Button Functions
     public void RegisterUser()
     {
         // Se la password è minore di 6 caratteri genera un messaggio
@@ -88,7 +106,30 @@ public class LoginPagePlayfab : MonoBehaviour
 
         //Testo di benvenuto
         WelcomeText.text = "Welcome " + name;
+        CreaRememberMeId();
+        PlayFabManager.Instance.isLogged = true;
         StartCoroutine(LoadNextScene());
+        
+    }
+
+
+    private void CreaRememberMeId()
+    {
+        PlayerPrefs.SetInt("RememberMe", 1);
+        RememberMeId = Guid.NewGuid().ToString(); //questo codice lo salva anche nei playerPrefs grazie al costruttore
+
+        // Fire and forget, but link a custom ID to this PlayFab Account.
+        PlayFabClientAPI.LinkCustomID(
+            new LinkCustomIDRequest
+            {
+                CustomId = RememberMeId,
+                ForceLink = true
+            },
+            null,   // Success callback
+            null    // Failure callback
+            );
+
+
     }
     public void RecoverUser()
     {
@@ -120,6 +161,7 @@ public class LoginPagePlayfab : MonoBehaviour
     private void OnregisterSucces(RegisterPlayFabUserResult Result)
     {
         MessageText.text = "New Account Is Created";
+        CreaRememberMeId();
     }
 
     public void OpenLoginPage()
@@ -144,6 +186,13 @@ public class LoginPagePlayfab : MonoBehaviour
         TopText.text = "Recovery";
     }
     #endregion
+
+
+    public void ClearRememberMe()
+    {
+        PlayerPrefs.DeleteKey(_PlayFabRememberMeIdKey);
+    }
+
 
     IEnumerator LoadNextScene()
     {

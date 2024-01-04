@@ -8,7 +8,7 @@ public class Bomba : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GetComponent<Collider>().enabled = false;
-            FindObjectOfType<GameManager>().Explode();
+            FindAnyObjectByType<GameManager>().Explode();
         }
     }
 
