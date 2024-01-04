@@ -4,12 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+using JetBrains.Annotations;
+using TMPro;
 
 /*La prima implementazione di questo script mi serve unicamente per controllare se sono effettivamente loggato
  in futuro potrei usarlo anche per gestire l'eliminazione dello sporco locale dopo il logo ff*/
 public class PlayFabManager : MonoBehaviour
 {
     private static PlayFabManager instance;
+    public GameObject leaderboardRow;
+    public Transform rowParent;
+
 
     public Boolean isLogged = false;
 
@@ -63,6 +69,59 @@ public class PlayFabManager : MonoBehaviour
             );
 
 
+    }
+
+
+
+    public void sendLeaderboard(int score)
+    {
+        var request = new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate>
+            {
+                new StatisticUpdate
+                {
+                    StatisticName = "Permanente",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, onLeaderboardUpdate, onError);
+    }
+
+    void onLeaderboardUpdate (UpdatePlayerStatisticsResult result)
+    {
+        Debug.Log("successful leaderboard sent");
+    }
+
+    void onError(PlayFabError error)
+    {
+        Debug.Log(error.GenerateErrorReport());
+    }
+
+    public void getLeaderboard()
+    {
+        var request = new GetLeaderboardRequest
+        {
+            StatisticName = "Permanente",
+            StartPosition = 0,
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboard(request, onLeaderboardGet, onError);
+    }
+
+    void onLeaderboardGet(GetLeaderboardResult result)
+    {
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGamObj = Instantiate(leaderboardRow, rowParent);
+            TextMeshProUGUI[] texts = newGamObj.GetComponentsInChildren<TextMeshProUGUI>();
+            texts[0].text = (item.Position + 1).ToString();
+            texts[1].text = item.DisplayName;
+            texts[2].text = item.StatValue.ToString();
+            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+
+        }
     }
 
 
