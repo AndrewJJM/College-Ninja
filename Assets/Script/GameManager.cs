@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     private Spawner spawner;
 
     [SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject mostraPunteggio;
 
     private int score;
 
@@ -71,16 +73,17 @@ public class GameManager : MonoBehaviour
 
     public void Explode()
     {
+       int punteggio_finale = score;
        blade.enabled = false;
        spawner.enabled = false;
 
-       StartCoroutine(ExplodeSequence());
+       StartCoroutine(ExplodeSequence(punteggio_finale));
 
         PlayFabManager.Instance.sendLeaderboard(score);  //salva punteggio sulla leaderboard
                 
     }
 
-    private IEnumerator ExplodeSequence()
+    private IEnumerator ExplodeSequence(int punteggio)
     {
         float elapsed = 0f;
         float duration = 0.5f;
@@ -101,7 +104,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
 
         NewGame();
-        openGameOverMenu();
+        openGameOverMenu(punteggio);
 
         elapsed = 0f;
 
@@ -119,9 +122,10 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void openGameOverMenu()
+    private void openGameOverMenu(int punteggio_finale)
     {
         gameOverMenu.SetActive(true);
+        mostraPunteggio.GetComponentInChildren<TextMeshProUGUI>().text = punteggio_finale.ToString();
         Time.timeScale = 0; //da cambiare
     }
 }
