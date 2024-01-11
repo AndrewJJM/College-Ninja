@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Scenes/AnimationStart.unity.meta
 guid: 931a41c5626f0664aa1d4798cb859611
+========
+guid: 42f917e61ee7ba6449a4db6d2d0a3cae
+folderAsset: yes
+>>>>>>>> Stashed changes:Assets/Modelli/waterbottle.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
