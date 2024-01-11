@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sliceable
   - Bomb
+  - Audio
   layers:
   - Default
   - TransparentFX

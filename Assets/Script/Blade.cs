@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using EzySlice;
 
+
 public class Blade : MonoBehaviour
 {
     public Vector3 direction { get; private set; } //Lasciare pubblico
@@ -20,6 +21,7 @@ public class Blade : MonoBehaviour
 
     [SerializeField] private float maxLifetime = 2f;
 
+    AudioManager audioManager;
 
     //importato da sliceObject
     public VelocityEstimator velocityEstimator;
@@ -32,6 +34,8 @@ public class Blade : MonoBehaviour
         mainCamera = Camera.main;
         sliceCollider = GetComponent<Collider>();
         sliceTrail = GetComponentInChildren<TrailRenderer>();
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnEnable()
@@ -114,6 +118,9 @@ public class Blade : MonoBehaviour
             GameObject[] slices = new GameObject[2];
             slices[0] = hull.CreateUpperHull(target, CrossSection);
             slices[1] = hull.CreateLowerHull(target, CrossSection);
+
+            audioManager.PlasySFX(audioManager.slicing);
+
             Destroy(target);
             ImpostaTaglio(slices, this.direction, this.transform.position);
             FindAnyObjectByType<GameManager>().IncreaseScore(1);
@@ -129,7 +136,7 @@ public class Blade : MonoBehaviour
             Rigidbody rb = slice.AddComponent<Rigidbody>();
             MeshCollider collider = slice.AddComponent<MeshCollider>();
             collider.convex = true;
-            //collider.isTrigger = true; // dopo averlo tagliato, non interagisce più fisicamente: non funziona
+            //collider.isTrigger = true; // dopo averlo tagliato, non interagisce piï¿½ fisicamente: non funziona
             //rb.AddExplosionForce(ForzaTaglio, slice.transform.position, 1);   implementazione vecchia
             rb.AddForceAtPosition(direzione.normalized * ForzaTaglio, posizione, ForceMode.Impulse);
             Destroy(slice, maxLifetime);

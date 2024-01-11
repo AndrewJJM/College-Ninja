@@ -15,12 +15,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject mostraPunteggio;
 
+    AudioManager audioManager;
+
     private int score;
 
     private void Awake()
     {
         blade = FindObjectOfType<Blade>();
         spawner = FindObjectOfType<Spawner>();
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
 
@@ -76,6 +80,8 @@ public class GameManager : MonoBehaviour
        int punteggio_finale = score;
        blade.enabled = false;
        spawner.enabled = false;
+
+        audioManager.PlasySFX(audioManager.death);
 
        StartCoroutine(ExplodeSequence(punteggio_finale));
 
