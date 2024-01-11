@@ -15,16 +15,39 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI WelcomeText;
 
-    private void Start()
+
+    private void Awake()
     {
-        if (PlayFabManager.Instance.isLogged == false) { 
+        RememberMeId = PlayerPrefs.GetString("RememberMeId");
+
+        if (PlayFabManager.Instance.isLogged == false && RememberMeId != null) { 
             AutoLogin(); //Frictionless Login
+        } else if (PlayFabManager.Instance.isLogged == true)
+        {
+            //da aggiungere un cambio di menù nelle opzioni in caso il giocatore sia loggato
         }
+        else
+        {
+            StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Accedere per salvare il punteggio"));
+        }
+    }
+    IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
+    {
+        // Attiva il GameObject della scritta
+        WelcomeObject.SetActive(true);
+
+        //Testo di benvenuto
+        WelcomeText.text = stringa;
+
+        // Attendi per 2 secondi
+        yield return new WaitForSeconds(2.0f);
+
+        // Disattiva il GameObject della scritta dopo l'attesa
+        WelcomeObject.SetActive(false);
     }
 
     private void AutoLogin()
     {
-        RememberMeId = PlayerPrefs.GetString("RememberMeId");
 
         var request = new LoginWithCustomIDRequest
         {
@@ -50,25 +73,12 @@ public class MainMenu : MonoBehaviour
             }
             PlayFabManager.Instance.isLogged = true;
 
-            StartCoroutine(MostraScrittaPerDueSecondiCoroutine(name));
+            StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Bentornato" + name));
  
             // Puoi accedere alle informazioni sull'account attraverso result.PlayFabId, result.SessionTicket, ecc.
         }
 
-        IEnumerator MostraScrittaPerDueSecondiCoroutine(string username)
-        {
-            // Attiva il GameObject della scritta
-            WelcomeObject.SetActive(true);
-
-            //Testo di benvenuto
-            WelcomeText.text = "Bentornato " + username;
-
-            // Attendi per 2 secondi
-            yield return new WaitForSeconds(2.0f);
-
-            // Disattiva il GameObject della scritta dopo l'attesa
-            WelcomeObject.SetActive(false);
-        }
+        
 
         void OnLoginFailure(PlayFab.PlayFabError error)
         {
@@ -82,7 +92,7 @@ public class MainMenu : MonoBehaviour
      }
 
 
-public void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }
@@ -90,5 +100,17 @@ public void QuitGame()
     public void LoginScene()
     {
         SceneManager.LoadSceneAsync(2); //numero da cambiare in base al numero scena nella build
+    }
+
+    public void LogOut()
+    {
+        if (PlayFabManager.Instance.isLogged == true)
+        {
+            PlayFabManager.Instance.effettuaLogout();
+        }
+        else
+        {
+            Debug.Log("Not Logged In");
+        }
     }
 }
