@@ -8,6 +8,7 @@ Ruoli:
 
 - Nuovi oggetti + colore- Andrew
 - Screen bounds per la frutta non tagliata - Andrew
+- moltiplicatore punteggio - Andrew
 - Risoluzione bug/migliorie Leaderboard- Andrew
 
   
