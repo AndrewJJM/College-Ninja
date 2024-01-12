@@ -287,7 +287,7 @@ MonoBehaviour:
   fine_lama: {fileID: 1091544045}
   maxLifetime: 5
   velocityEstimator: {fileID: 1091544046}
-  CrossSection: {fileID: 0}
+  CrossSection: {fileID: 2100000, guid: 6b697beda18efb64c82f81153f9d6296, type: 2}
   ForzaTaglio: 5
 --- !u!4 &314877321
 Transform:
