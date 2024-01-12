@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
        blade.enabled = false;
        spawner.enabled = false;
 
-        audioManager.PlasySFX(audioManager.death);
+       //audioManager.PlasySFX(audioManager.death);
 
        StartCoroutine(ExplodeSequence(punteggio_finale));
 

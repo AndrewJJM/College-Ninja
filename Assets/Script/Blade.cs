@@ -119,7 +119,7 @@ public class Blade : MonoBehaviour
             slices[0] = hull.CreateUpperHull(target, CrossSection);
             slices[1] = hull.CreateLowerHull(target, CrossSection);
 
-            audioManager.PlasySFX(audioManager.slicing);
+            // audioManager.PlasySFX(audioManager.slicing);
 
             Destroy(target);
             ImpostaTaglio(slices, this.direction, this.transform.position);

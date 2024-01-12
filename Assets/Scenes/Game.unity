@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabOggetti:
   - {fileID: 376014865174381301, guid: cc32c75ccef0f1e4d9a38b2382c1df02, type: 3}
-  - {fileID: 2549282698605220090, guid: 52f68e34cd68e1745aa2945305c7aa79, type: 3}
+  - {fileID: 3187488110692012331, guid: 09c237ca4c623534dbb4f881cb887ea8, type: 3}
   bombaPrefab: {fileID: 4832955661617707656, guid: b5f75a1932ebb084188fd1cf382ad082,
     type: 3}
   bombaChance: 0.095
@@ -2069,11 +2069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cd83701d4ed476c82671486c1db8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 445116178}
-  SFXSource: {fileID: 1742398134}
-  background: {fileID: 8300000, guid: ac81e521cc4fffd4cb560d4ddc70d306, type: 3}
-  slicing: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
-  death: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!4 &1447680264
 Transform:
   m_ObjectHideFlags: 0
@@ -2823,6 +2818,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9482c30f60831b4f89a3d5f28c48fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layermask:
+    serializedVersion: 2
+    m_Bits: 0
   gamemanager: {fileID: 337360960}
 --- !u!1 &2051823659
 GameObject:
