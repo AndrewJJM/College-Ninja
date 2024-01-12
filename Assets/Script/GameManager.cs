@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         spawner = FindObjectOfType<Spawner>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        Application.targetFrameRate = -1;  //in teoria rende il gioco più fluido
     }
 
 
