@@ -2,24 +2,21 @@
 Progetto di mobile computing 2023
 
 Ruoli: 
-- Menù - Alessia	
+
 - Setting - Alessia
-- schermata di game over - Alessia
 - Slider volume ed effetti
 
-- Nuovi oggetti - Andrew
-- Colore oggetti - Andrew
-- Risoluzione bug - Andrew
-- migliorare le connessioni fra le varie scene (valutare se è il caso di aggiungere frictionless login in tutte le scene)
- 
+- Nuovi oggetti + colore- Andrew
+- Screen bounds per la frutta non tagliata - Andrew
+- Risoluzione bug/migliorie Leaderboard- Andrew
+
+  
 - Sfondi coerenti (trovarli e selezionarli) - Elena
-- Grafica per tasto play, chiudi e pausa - Elena
-- Logo - Elena
+- 17 in 3d al posto della bomba
+
 
 EXTRA:
 - 3 Vite
-- Due livelli di difficoltà
-- Classifica (in locale/online) - Elena
 - Tutorial nel menù (sezione dove si spiegano le modalità di gioco e la possibilità di giocare online)
 
 
@@ -33,7 +30,6 @@ Possibili oggetti da far spawnare:
 
 3 vite?
 
-Oggetti 3d vuoti dentro?
 
 
 
