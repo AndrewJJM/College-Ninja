@@ -119,7 +119,6 @@ public class Blade : MonoBehaviour
             slices[0] = hull.CreateUpperHull(target, CrossSection);
             slices[1] = hull.CreateLowerHull(target, CrossSection);
 
-
             Destroy(target);
             ImpostaTaglio(slices, this.direction, this.transform.position);
             FindAnyObjectByType<GameManager>().IncreaseScore(1);

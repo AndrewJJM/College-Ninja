@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
 
        // audioManager.PlasySFX(audioManager.death); Null Reference exception, da correggere
 
+
        StartCoroutine(ExplodeSequence(punteggio_finale));
 
         PlayFabManager.Instance.sendLeaderboard(score);  //salva punteggio sulla leaderboard

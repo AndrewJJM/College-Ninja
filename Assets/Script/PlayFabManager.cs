@@ -9,7 +9,8 @@ using JetBrains.Annotations;
 using TMPro;
 
 /*La prima implementazione di questo script mi serve unicamente per controllare se sono effettivamente loggato
- in futuro potrei usarlo anche per gestire l'eliminazione dello sporco locale dopo il logo ff*/
+ in futuro potrei usarlo anche per gestire l'eliminazione dello sporco locale dopo il logout */
+
 public class PlayFabManager : MonoBehaviour
 {
     private static PlayFabManager instance;
@@ -18,6 +19,9 @@ public class PlayFabManager : MonoBehaviour
 
 
     public Boolean isLogged = false;
+
+
+    /*********************+++++++++++******LOGIN/REGISTER*******************************************/
 
     private string RememberMeId
     {
@@ -68,10 +72,10 @@ public class PlayFabManager : MonoBehaviour
             null    // Failure callback
             );
 
-
     }
 
 
+    /*****************************LEADERBOARD**********************************/
 
     public void sendLeaderboard(int score)
     {
@@ -112,6 +116,39 @@ public class PlayFabManager : MonoBehaviour
 
     void onLeaderboardGet(GetLeaderboardResult result)
     {
+        foreach (Transform item in rowParent)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (var item in result.Leaderboard)
+        {
+            GameObject newGamObj = Instantiate(leaderboardRow, rowParent);
+            TextMeshProUGUI[] texts = newGamObj.GetComponentsInChildren<TextMeshProUGUI>();
+            texts[0].text = (item.Position + 1).ToString();
+            texts[1].text = item.DisplayName;
+            texts[2].text = item.StatValue.ToString();
+            Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
+        }
+    }
+
+    public void getLeaderboardAroundPlayer()
+    {
+        var request = new GetLeaderboardAroundPlayerRequest
+        {
+            StatisticName = "Permanente",
+            MaxResultsCount = 10
+        };
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, onLeaderboardAroundPLayerGet, onError);
+    }
+
+    private void onLeaderboardAroundPLayerGet(GetLeaderboardAroundPlayerResult result)
+    {
+        foreach (Transform item in rowParent)
+        {
+            Destroy(item.gameObject);
+        }
+
         foreach (var item in result.Leaderboard)
         {
             GameObject newGamObj = Instantiate(leaderboardRow, rowParent);
@@ -122,6 +159,24 @@ public class PlayFabManager : MonoBehaviour
             Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
 
         }
+    }
+
+    private void sendRandomValues() //to populate the leaderboard
+    {
+        //NOT DOABLE?
+    }
+
+    /*******************************************LOGOUT**************************************/
+    
+    public void effettuaLogout ()
+    {
+        var request = new UnlinkCustomIDRequest
+        {
+            CustomId = "RememberMeId"
+        };
+        PlayFabClientAPI.UnlinkCustomID(request, null, null);
+        PlayFabClientAPI.ForgetAllCredentials();
+        PlayerPrefs.DeleteKey("RememberMeId");
     }
 
 
