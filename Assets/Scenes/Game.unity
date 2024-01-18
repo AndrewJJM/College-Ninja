@@ -545,7 +545,7 @@ AudioSource:
   m_GameObject: {fileID: 445116177}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 2774981183754000602, guid: a2637af1e14bc40cd9f8546f860ed1b0,
+  OutputAudioMixerGroup: {fileID: 2774981183754000602, guid: e95e320cf3dfd463c9e416c5f038ccbd,
     type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
@@ -1465,8 +1465,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278852982
+  m_fontColor: {r: 0.4627451, g: 0.11372549, b: 0.039215688, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2049,7 +2049,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1447680264}
-  - component: {fileID: 1447680263}
+  - component: {fileID: 1447680266}
+  - component: {fileID: 1447680265}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Audio
@@ -2057,18 +2058,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1447680263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447680262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34cd83701d4ed476c82671486c1db8ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1447680264
 Transform:
   m_ObjectHideFlags: 0
@@ -2086,6 +2075,31 @@ Transform:
   - {fileID: 1742398135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1447680265
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447680262}
+  m_Enabled: 1
+--- !u!114 &1447680266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447680262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0b6ac004ce94094b2cf15c9204b1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 445116178}
+  SFXSource: {fileID: 1742398134}
+  background: {fileID: 8300000, guid: 35df81347f8b4416fbf44fe8d4920c67, type: 3}
+  slicing: {fileID: 8300000, guid: 744e1ae9846d84ba8896ddab0061eaec, type: 3}
+  death: {fileID: 8300000, guid: ac469eca0a5814d10be2795026b6f41f, type: 3}
 --- !u!1 &1504555092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2499,7 @@ AudioSource:
   m_GameObject: {fileID: 1742398133}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -3009287305386942863, guid: a2637af1e14bc40cd9f8546f860ed1b0,
+  OutputAudioMixerGroup: {fileID: -3009287305386942863, guid: e95e320cf3dfd463c9e416c5f038ccbd,
     type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
