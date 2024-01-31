@@ -13,9 +13,10 @@ public class GameManager : MonoBehaviour
     private Spawner spawner;
 
     [SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject mostraPunteggio;
 
-    AudioManager audioManager;
+    [SerializeField] AudioManager audioManager;
 
     private int score;
 
@@ -24,8 +25,8 @@ public class GameManager : MonoBehaviour
         blade = FindObjectOfType<Blade>();
         spawner = FindObjectOfType<Spawner>();
 
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        Application.targetFrameRate = -1;  //in teoria rende il gioco più fluido
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        Application.targetFrameRate = -1;  //in teoria rende il gioco piï¿½ fluido
     }
 
 
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
        blade.enabled = false;
        spawner.enabled = false;
 
-       // audioManager.PlasySFX(audioManager.death); Null Reference exception, da correggere
+       audioManager.PlasySFX(audioManager.death);
 
 
        StartCoroutine(ExplodeSequence(punteggio_finale));
@@ -133,6 +134,7 @@ public class GameManager : MonoBehaviour
     private void openGameOverMenu(int punteggio_finale)
     {
         gameOverMenu.SetActive(true);
+        pauseButton.SetActive(false);
         mostraPunteggio.GetComponentInChildren<TextMeshProUGUI>().text = punteggio_finale.ToString();
         Time.timeScale = 0; //da cambiare
     }

@@ -122,8 +122,7 @@ public class Blade : MonoBehaviour
             Destroy(target);
             ImpostaTaglio(slices, this.direction, this.transform.position);
             FindAnyObjectByType<GameManager>().IncreaseScore(1);
-            // audioManager.PlasySFX(audioManager.slicing); non funzionante per ora "NullReference Exception"
-
+            audioManager.PlasySFX(audioManager.slicing);
         }
 
     }
