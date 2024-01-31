@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Leaderboard.unity
     guid: 6cf3e8f552c659946b6bfa0a30faeec3
+  - enabled: 0
+    path: Assets/Scenes/AnimationStart.unity
+    guid: 931a41c5626f0664aa1d4798cb859611
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: e8d20f5ec227a89428b96e5fb01e4c73, type: 2}
