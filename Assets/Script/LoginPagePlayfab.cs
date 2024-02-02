@@ -108,6 +108,8 @@ public class LoginPagePlayfab : MonoBehaviour
         WelcomeText.text = "Welcome " + name;
         CreaRememberMeId();
         PlayFabManager.Instance.isLogged = true;
+        PlayFabManager.Instance.currentLoggedId = result.PlayFabId;
+
         StartCoroutine(LoadNextScene());
         
     }
