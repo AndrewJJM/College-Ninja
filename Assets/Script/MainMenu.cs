@@ -19,10 +19,8 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         RememberMeId = PlayerPrefs.GetString("RememberMeId");
-        Debug.Log(RememberMeId);
-        Debug.Log(string.IsNullOrEmpty(RememberMeId));
 
-        if (PlayFabManager.Instance.isLogged == false && !string.IsNullOrEmpty(RememberMeId)) { 
+        if (PlayFabManager.Instance.isLogged == false && RememberMeId != null) { 
             AutoLogin(); //Frictionless Login
         } else if (PlayFabManager.Instance.isLogged == true)
         {
@@ -74,9 +72,6 @@ public class MainMenu : MonoBehaviour
                 name = result.InfoResultPayload.PlayerProfile.DisplayName;
             }
             PlayFabManager.Instance.isLogged = true;
-            PlayFabManager.Instance.currentLoggedId = result.PlayFabId;
-
-
 
             StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Bentornato" + name));
  
