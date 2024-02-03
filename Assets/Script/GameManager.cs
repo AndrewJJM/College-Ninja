@@ -14,18 +14,26 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject mostraPunteggio;
+    [SerializeField] GameObject scoreUI;
+    [SerializeField] GameObject pauseButton;
 
     AudioManager audioManager;
 
     private int score;
+    int multiplier_value;
+    int lifePoints;
+    [SerializeField] private Image showLifePoints;
+    [SerializeField] private Sprite[] lifePointsArray;
 
     private void Awake()
     {
         blade = FindObjectOfType<Blade>();
         spawner = FindObjectOfType<Spawner>();
-
+        multiplier_value = 1;
+        lifePoints = 5;
+        changeLife();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        Application.targetFrameRate = -1;  //in teoria rende il gioco più fluido
+        Application.targetFrameRate = 60;  //in teoria rende il gioco più fluido
     }
 
 
@@ -72,8 +80,45 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore(int points)
     {
-        score += points;
+        score += points * multiplier_value;
         scoreText.text = score.ToString();
+    }
+    public void decreaseLife()
+    {
+        if(lifePoints > 1)
+        {
+            lifePoints--;
+            changeLife();
+        }
+        else
+        {
+            changeLife();
+            Explode();
+        }
+    }
+    private void changeLife()
+    {
+        switch (lifePoints)
+        {
+            case 5:
+                showLifePoints.sprite = lifePointsArray[0];
+                break;
+            case 4:
+                showLifePoints.sprite = lifePointsArray[1];
+                break;
+            case 3:
+                showLifePoints.sprite = lifePointsArray[2];
+                break;
+            case 2:
+                showLifePoints.sprite = lifePointsArray[3];
+                break;
+            case 1:
+                showLifePoints.sprite = lifePointsArray[4];
+                break;
+            case 0:
+                showLifePoints.sprite = lifePointsArray[5];
+                break;
+        }
     }
 
     public void Explode()
@@ -133,6 +178,8 @@ public class GameManager : MonoBehaviour
     private void openGameOverMenu(int punteggio_finale)
     {
         gameOverMenu.SetActive(true);
+        scoreUI.SetActive(false);
+        pauseButton.SetActive(false);
         mostraPunteggio.GetComponentInChildren<TextMeshProUGUI>().text = punteggio_finale.ToString();
         Time.timeScale = 0; //da cambiare
     }

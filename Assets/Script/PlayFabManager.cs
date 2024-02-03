@@ -78,7 +78,8 @@ public class PlayFabManager : MonoBehaviour
 
     }
 
-    /*******************************************NEW AUTOLOGIN************************************************************/ 
+
+    /*******************************************NEW AUTOLOGIN************************************************************/
 
     //NO NEED?
 
@@ -166,7 +167,7 @@ public class PlayFabManager : MonoBehaviour
 
             if (item.PlayFabId == currentLoggedId)
             {
-                Color selectedColor = Color.cyan;
+                Color selectedColor = new Color(1f, 0.733f , 0.125f);
                 texts[0].color = selectedColor;
                 texts[1].color = selectedColor;
                 texts[2].color = selectedColor;

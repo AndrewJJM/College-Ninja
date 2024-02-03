@@ -3,34 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SensoreFrutti : MonoBehaviour
 
 {
-    [SerializeField] private LayerMask layermask;
     public GameManager gamemanager;
-    private Camera _camera;
-    private BoxCollider _collider;
+
+    [SerializeField] private GameObject missedSymbol;
+    [SerializeField] private Transform parentCanvas;
+    [SerializeField] private RectTransform rectTransform;
 
     private void Awake()
     {
-        _camera = Camera.main;
-        _collider = GetComponent<BoxCollider>();
-        Debug.Log(_camera.pixelHeight);
-        Debug.Log(_camera.pixelWidth);
-        setAreaSize();
+        //_collider = GetComponent<BoxCollider>(); non serve?
     }
-
-    private void setAreaSize()
+    private void OnTriggerEnter(Collider other)
     {
-        _collider.size = new Vector3(_camera.aspect * 2f * _camera.orthographicSize, 2f * _camera.orthographicSize, 20f);
-        _collider.center = new Vector3(_camera.transform.position.x, _camera.transform.position.y, 0f);
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Something");
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        gamemanager.Explode(); //da impostare un counter con 3 vite
+        Vector3 ObjectScreenPosition = Camera.main.WorldToScreenPoint(other.transform.position);
+        GameObject temp_symbol = GameObject.Instantiate(missedSymbol, parentCanvas);
+        temp_symbol.transform.position = new Vector3(ObjectScreenPosition.x, temp_symbol.transform.position.y, temp_symbol.transform.position.z);
+        Destroy(temp_symbol, 2);
+        gamemanager.decreaseLife();
     }
 }
