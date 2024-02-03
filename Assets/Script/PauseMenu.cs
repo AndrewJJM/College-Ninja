@@ -1,10 +1,10 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject scoreUI;
     [SerializeField] GameObject pauseButton;
 
