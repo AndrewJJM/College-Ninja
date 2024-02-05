@@ -984,7 +984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d479613dbf047744af3bdb31d0e8f58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b73630412dfc5d4e9862942ae7c46cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f60c3213e4f976042be5a593668cbea3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc405e3fea7d16f459a17120a822c2bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2099,7 +2099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 445116178}
   SFXSource: {fileID: 1742398134}
-  background: {fileID: 8300000, guid: 35df81347f8b4416fbf44fe8d4920c67, type: 3}
+  background: {fileID: 8300000, guid: fb7d55f03e2624f259adb57a8c595517, type: 3}
   slicing: {fileID: 8300000, guid: d926b3c6baddd411587d1469090e8c93, type: 3}
   death: {fileID: 8300000, guid: 2fc6599f4472c40ac9c43578c5f0afcf, type: 3}
 --- !u!1 &1504555092
