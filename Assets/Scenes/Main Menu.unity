@@ -447,7 +447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 045f72673197c49eeb8b5fbb473b82cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2d33462c5e21d44598ea020068dfbfc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2011,6 +2011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WelcomeObject: {fileID: 1390958130}
   WelcomeText: {fileID: 1490093177}
+  loginObbligato: {fileID: 0}
 --- !u!1 &1390958130
 GameObject:
   m_ObjectHideFlags: 0
