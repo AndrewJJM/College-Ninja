@@ -74,19 +74,16 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 .vscode/settings.json
 Assets/.DS_Store
-Assets/.DS_Store
-Assets/.DS_Store
+
 Assets/TextMesh Pro
-Assets/.DS_Store
+
 Assets/TextMesh Pro.meta
 Assets/PlayFabEditorExtensions/Editor/Resources/PlayFabEditorPrefsSO.asset
 Assets/PlayFabEditorExtensions/Editor/Resources/PlayFabEditorPrefsSO.asset
 Assets/PlayFabEditorExtensions/Editor/Resources/PlayFabEditorPrefsSO.asset
 Assets/MUSICA/FREE CASUAL MUSIC PACK/OTHERS/Chinese_loop 1.wav
 Assets/MUSICA/FREE CASUAL MUSIC PACK/OTHERS/Casual suspense.wav.meta
-*.wav
-*.meta
-*.txt
+
 Assets/MUSICA/FREE CASUAL MUSIC PACK/CASUAL GAME MUSIC (FULL VERSION).pdf
 Assets/MUSICA/FREE CASUAL MUSIC PACK/CASUAL GAME MUSIC (FREE).pdf
 Assets/MUSICA/CasualGameSounds/license.pdf
