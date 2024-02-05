@@ -2100,8 +2100,8 @@ MonoBehaviour:
   musicSource: {fileID: 445116178}
   SFXSource: {fileID: 1742398134}
   background: {fileID: 8300000, guid: 35df81347f8b4416fbf44fe8d4920c67, type: 3}
-  slicing: {fileID: 8300000, guid: 744e1ae9846d84ba8896ddab0061eaec, type: 3}
-  death: {fileID: 8300000, guid: ac469eca0a5814d10be2795026b6f41f, type: 3}
+  slicing: {fileID: 8300000, guid: d926b3c6baddd411587d1469090e8c93, type: 3}
+  death: {fileID: 8300000, guid: 2fc6599f4472c40ac9c43578c5f0afcf, type: 3}
 --- !u!1 &1504555092
 GameObject:
   m_ObjectHideFlags: 0
