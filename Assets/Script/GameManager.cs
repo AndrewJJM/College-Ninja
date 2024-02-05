@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject mostraPunteggio;
     [SerializeField] GameObject scoreUI;
-    [SerializeField] GameObject pauseButton;
 
     [SerializeField] AudioManager audioManager;
 

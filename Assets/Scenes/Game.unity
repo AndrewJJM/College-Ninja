@@ -364,7 +364,7 @@ MonoBehaviour:
   pauseButton: {fileID: 190296481}
   mostraPunteggio: {fileID: 1655999899}
   scoreUI: {fileID: 2131852143}
-  pauseButton: {fileID: 190296481}
+  audioManager: {fileID: 0}
   showLifePoints: {fileID: 1613513100}
   lifePointsArray:
   - {fileID: 21300000, guid: 671d6f073a314784c89e5c953415e3fa, type: 3}
@@ -373,7 +373,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9e4037fc03144af43837d98e3aba8c66, type: 3}
   - {fileID: 21300000, guid: ac7cf219c334ca4499cba2a06f7609b6, type: 3}
   - {fileID: 21300000, guid: 7f837dca72880e242b14fb4f04ea49ce, type: 3}
-  audioManager: {fileID: 1447680266}
 --- !u!222 &337360961
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1363,7 +1362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 982311226}
-  gameOverMenu: {fileID: 1715992730}
   scoreUI: {fileID: 2131852143}
   pauseButton: {fileID: 190296481}
 --- !u!1 &1091544044
@@ -1770,7 +1768,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
-  gameOverMenu: {fileID: 0}
   scoreUI: {fileID: 0}
   pauseButton: {fileID: 0}
 --- !u!1 &1189088479
@@ -1827,7 +1824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabOggetti:
   - {fileID: 376014865174381301, guid: cc32c75ccef0f1e4d9a38b2382c1df02, type: 3}
-  - {fileID: 3187488110692012331, guid: 09c237ca4c623534dbb4f881cb887ea8, type: 3}
+  - {fileID: 2549282698605220090, guid: 52f68e34cd68e1745aa2945305c7aa79, type: 3}
   bombaPrefab: {fileID: 4832955661617707656, guid: b5f75a1932ebb084188fd1cf382ad082,
     type: 3}
   bombaChance: 0.095
@@ -2100,8 +2097,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1447680264}
-  - component: {fileID: 1447680266}
   - component: {fileID: 1447680265}
+  - component: {fileID: 1447680266}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Audio
@@ -2143,14 +2140,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1447680262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0b6ac004ce94094b2cf15c9204b1d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 68c17067486a9b941b2b420eb5393c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 445116178}
   SFXSource: {fileID: 1742398134}
-  background: {fileID: 8300000, guid: fb7d55f03e2624f259adb57a8c595517, type: 3}
-  slicing: {fileID: 8300000, guid: d926b3c6baddd411587d1469090e8c93, type: 3}
-  death: {fileID: 8300000, guid: 2fc6599f4472c40ac9c43578c5f0afcf, type: 3}
+  background: {fileID: 8300000, guid: f2a3dc46bd628a840a0a00f7abab1384, type: 3}
+  slicing: {fileID: 8300000, guid: 96535be2fb3bd3b4d93d3375f9fbc835, type: 3}
+  death: {fileID: 8300000, guid: 6014e3f40cf3f7849bd4bdea96b76a8c, type: 3}
 --- !u!1 &1504555092
 GameObject:
   m_ObjectHideFlags: 0
