@@ -13,11 +13,11 @@ public class GameManager : MonoBehaviour
     private Spawner spawner;
 
     [SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject mostraPunteggio;
     [SerializeField] GameObject scoreUI;
-    [SerializeField] GameObject pauseButton;
 
-    AudioManager audioManager;
+    [SerializeField] AudioManager audioManager;
 
     private int score;
     int multiplier_value;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         lifePoints = 5;
         changeLife();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        Application.targetFrameRate = 60;  //in teoria rende il gioco più fluido
+        Application.targetFrameRate = 60;  //in teoria rende il gioco piï¿½ fluido
     }
 
 
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
        blade.enabled = false;
        spawner.enabled = false;
 
-       // audioManager.PlasySFX(audioManager.death); Null Reference exception, da correggere
+       audioManager.PlasySFX(audioManager.death);
 
 
        StartCoroutine(ExplodeSequence(punteggio_finale));
