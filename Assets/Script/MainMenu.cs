@@ -14,7 +14,8 @@ public class MainMenu : MonoBehaviour
     private GameObject WelcomeObject;
     [SerializeField]
     private TextMeshProUGUI WelcomeText;
-
+    [SerializeField]
+    private GameObject loginObbligato;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Accedere per salvare il punteggio"));
+            loginObbligato.SetActive(true);
         }
     }
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
@@ -78,7 +80,7 @@ public class MainMenu : MonoBehaviour
 
 
 
-            StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Bentornato" + name));
+            StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Bentornato " + name));
  
             // Puoi accedere alle informazioni sull'account attraverso result.PlayFabId, result.SessionTicket, ecc.
         }
