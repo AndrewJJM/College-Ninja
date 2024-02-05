@@ -67,8 +67,8 @@ public class Spawner : MonoBehaviour
 
             //angolo di lancio
             Quaternion rotazione = Quaternion.Euler(0f, 0f, Random.Range(minAngolo, maxAngolo));
-
-            GameObject Oggetto = Instantiate(prefab, coordinate, rotazione);
+            float random_rotation = Random.Range(-90, 90);
+            GameObject Oggetto = Instantiate(prefab, coordinate, rotazione * Quaternion.Euler(0, random_rotation, 0));
             Oggetto.tag = "Sliceable";
 
             Destroy(Oggetto, maxLifetime);

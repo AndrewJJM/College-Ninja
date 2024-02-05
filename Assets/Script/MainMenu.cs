@@ -80,7 +80,7 @@ public class MainMenu : MonoBehaviour
 
 
 
-            StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Bentornato" + name));
+            StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Bentornato " + name));
  
             // Puoi accedere alle informazioni sull'account attraverso result.PlayFabId, result.SessionTicket, ecc.
         }
