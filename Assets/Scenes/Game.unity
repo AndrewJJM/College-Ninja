@@ -1823,10 +1823,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabOggetti:
-  - {fileID: 376014865174381301, guid: cc32c75ccef0f1e4d9a38b2382c1df02, type: 3}
-  - {fileID: 2549282698605220090, guid: 52f68e34cd68e1745aa2945305c7aa79, type: 3}
-  - {fileID: 2713849130967150986, guid: 20a7ec919c736d547ae4104a85f95330, type: 3}
-  - {fileID: 9157807975543502444, guid: c5676e85982d83e4ca5d8971810aef71, type: 3}
+  - {fileID: 885242290294938519, guid: bb718e814b9e5054aa52278300b7f577, type: 3}
+  - {fileID: 1345925363837280365, guid: b348248bb958dd54e809b6105bbf1adf, type: 3}
+  - {fileID: 4833063012094230707, guid: 958195e218a03584388e8d9c57e3d954, type: 3}
+  - {fileID: 6825397485547630812, guid: 1524e6e6c12ead240aeb9bebd3da4522, type: 3}
   bombaPrefab: {fileID: 4832955661617707656, guid: b5f75a1932ebb084188fd1cf382ad082,
     type: 3}
   bombaChance: 0.095
