@@ -14,8 +14,7 @@ public class MainMenu : MonoBehaviour
     private GameObject WelcomeObject;
     [SerializeField]
     private TextMeshProUGUI WelcomeText;
-    [SerializeField]
-    private GameObject loginObbligato;
+
 
     private void Awake()
     {
@@ -32,13 +31,13 @@ public class MainMenu : MonoBehaviour
         else
         {
             StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Accedere per salvare il punteggio"));
-            loginObbligato.SetActive(true);
         }
     }
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
         // Attiva il GameObject della scritta
         WelcomeObject.SetActive(true);
+
 
         //Testo di benvenuto
         WelcomeText.text = stringa;

@@ -298,7 +298,7 @@ Transform:
   m_GameObject: {fileID: 314877318}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -365,6 +365,7 @@ MonoBehaviour:
   mostraPunteggio: {fileID: 1655999899}
   scoreUI: {fileID: 2131852143}
   audioManager: {fileID: 0}
+  lifePoints: 0
   showLifePoints: {fileID: 1613513100}
   lifePointsArray:
   - {fileID: 21300000, guid: 671d6f073a314784c89e5c953415e3fa, type: 3}
@@ -1849,7 +1850,7 @@ Transform:
   m_GameObject: {fileID: 1189088479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -8, z: -8}
+  m_LocalPosition: {x: 0, y: -9, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2918,7 +2919,7 @@ Transform:
   m_GameObject: {fileID: 2016929608}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -11, z: 0}
+  m_LocalPosition: {x: 0, y: -13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

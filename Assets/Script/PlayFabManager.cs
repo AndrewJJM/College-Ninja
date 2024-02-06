@@ -19,10 +19,29 @@ public class PlayFabManager : MonoBehaviour
     public Transform rowParent;
     public static string playfabID;
     public string currentLoggedId;
+    [SerializeField] GameObject messengerToUser; 
+    [SerializeField] TextMeshProUGUI textToUser;
 
 
     public Boolean isLogged = false;
 
+    /************************************************Message to user*************************************************/
+    IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa, Color selectedColor)
+    {
+        // Attiva il GameObject della scritta
+        messengerToUser.SetActive(true);
+        Image buttonImage = messengerToUser.GetComponent<Image>();
+        buttonImage.color = selectedColor;
+
+        //Testo di benvenuto
+        textToUser.text = stringa;
+
+        // Attendi per 2 secondi
+        yield return new WaitForSeconds(2.0f);
+
+        // Disattiva il GameObject della scritta dopo l'attesa
+        messengerToUser.SetActive(false);
+    }
 
     /*********************+++++++++++******LOGIN/REGISTER*******************************************/
 

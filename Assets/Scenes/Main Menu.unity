@@ -2011,7 +2011,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WelcomeObject: {fileID: 1390958130}
   WelcomeText: {fileID: 1490093177}
-  loginObbligato: {fileID: 0}
 --- !u!1 &1390958130
 GameObject:
   m_ObjectHideFlags: 0
