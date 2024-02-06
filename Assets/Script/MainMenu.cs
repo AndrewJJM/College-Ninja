@@ -14,22 +14,27 @@ public class MainMenu : MonoBehaviour
     private GameObject WelcomeObject;
     [SerializeField]
     private TextMeshProUGUI WelcomeText;
+    [SerializeField]
+    private GameObject leaderboardButton;
+    [SerializeField]
+    private GameObject logoutButton;
 
 
     private void Awake()
     {
         RememberMeId = PlayerPrefs.GetString("RememberMeId");
-        Debug.Log(RememberMeId);
-        Debug.Log(string.IsNullOrEmpty(RememberMeId));
 
         if (PlayFabManager.Instance.isLogged == false && !string.IsNullOrEmpty(RememberMeId)) { 
             AutoLogin(); //Frictionless Login
-        } else if (PlayFabManager.Instance.isLogged == true)
+        }
+        else if (PlayFabManager.Instance.isLogged == true)
         {
             //da aggiungere un cambio di menù nelle opzioni in caso il giocatore sia loggato
         }
         else
         {
+            leaderboardButton.SetActive(false);
+            logoutButton.SetActive(false);
             StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Accedere per salvare il punteggio"));
         }
     }
@@ -67,7 +72,6 @@ public class MainMenu : MonoBehaviour
 
         void OnLoginSuccess(PlayFab.ClientModels.LoginResult result)
         {
-            Debug.Log("Login con successo!");
             string name = null;
 
             if (result.InfoResultPayload != null)
@@ -113,10 +117,16 @@ public class MainMenu : MonoBehaviour
         if (PlayFabManager.Instance.isLogged == true)
         {
             PlayFabManager.Instance.effettuaLogout();
+            leaderboardButton.SetActive(false);
+            logoutButton.SetActive(false);
         }
         else
         {
             Debug.Log("Not Logged In");
         }
+    }
+    public void OpenLeaderboard()
+    {
+        SceneManager.LoadSceneAsync(3); //numero da cambiare in base al numero scena nella build
     }
 }
