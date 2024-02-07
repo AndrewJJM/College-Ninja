@@ -12,6 +12,10 @@ public class AudioManager : MonoBehaviour
         public AudioClip background;
         public AudioClip slicing;
         public AudioClip death;
+        public AudioClip fall;
+        public AudioClip multiplayer;
+        public AudioClip gameOver;
+        public AudioClip genericAudio;
 
     private void Start()
     {

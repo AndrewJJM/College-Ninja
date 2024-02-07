@@ -2291,6 +2291,10 @@ MonoBehaviour:
   background: {fileID: 8300000, guid: f2a3dc46bd628a840a0a00f7abab1384, type: 3}
   slicing: {fileID: 8300000, guid: 96535be2fb3bd3b4d93d3375f9fbc835, type: 3}
   death: {fileID: 8300000, guid: 6014e3f40cf3f7849bd4bdea96b76a8c, type: 3}
+  fall: {fileID: 8300000, guid: 8ea1aa42cdaa34aec923933a4dc8002f, type: 3}
+  multiplayer: {fileID: 8300000, guid: 769b0e69eb937437a9f847bbd47cf8c0, type: 3}
+  gameOver: {fileID: 0}
+  genericAudio: {fileID: 8300000, guid: 5304d8fcc5f614c119dfd26624ce646d, type: 3}
 --- !u!1 &1455076650
 GameObject:
   m_ObjectHideFlags: 0
