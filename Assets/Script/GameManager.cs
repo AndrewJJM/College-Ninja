@@ -18,9 +18,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject scoreUI;
 
     [SerializeField] AudioManager audioManager;
+    [SerializeField] Text multiplierText;
+    [SerializeField] GameObject multiplierImage;
+
 
     private int score;
     private int multiplier_value = 1;
+
     [SerializeField] int lifePoints = 5;
     [SerializeField] private Image showLifePoints;
     [SerializeField] private Sprite[] lifePointsArray;
@@ -100,6 +104,8 @@ public class GameManager : MonoBehaviour
     public void multiplyScore()
     {
         multiplier_value ++;
+        multiplierImage.SetActive(true);
+        multiplierText.text = "x" + multiplier_value.ToString();
         StartCoroutine(reduceMultiply(5));
     }
     private IEnumerator reduceMultiply(float time)
@@ -109,6 +115,11 @@ public class GameManager : MonoBehaviour
         while (multiplier_value > 1)
         {
             multiplier_value--;
+            multiplierText.text = "x" + multiplier_value.ToString();
+            if (multiplier_value == 1)
+            {
+                multiplierImage.SetActive(false);
+            }
             yield return new WaitForSeconds(time);
         }
     }
