@@ -1964,10 +1964,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabOggetti:
-  - {fileID: 885242290294938519, guid: bb718e814b9e5054aa52278300b7f577, type: 3}
+  - {fileID: 6825397485547630812, guid: 1524e6e6c12ead240aeb9bebd3da4522, type: 3}
   - {fileID: 1345925363837280365, guid: b348248bb958dd54e809b6105bbf1adf, type: 3}
   - {fileID: 4833063012094230707, guid: 958195e218a03584388e8d9c57e3d954, type: 3}
-  - {fileID: 6825397485547630812, guid: 1524e6e6c12ead240aeb9bebd3da4522, type: 3}
+  - {fileID: 885242290294938519, guid: bb718e814b9e5054aa52278300b7f577, type: 3}
   bombaPrefab: {fileID: 4204756169470482044, guid: cc399896c1ad7d74c9b14f312084c890,
     type: 3}
   bombaChance: 0.25
