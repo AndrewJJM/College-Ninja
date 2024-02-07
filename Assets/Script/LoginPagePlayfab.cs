@@ -209,4 +209,8 @@ public class LoginPagePlayfab : MonoBehaviour
         MessageText.text = "Loggin in";
         SceneManager.LoadSceneAsync(0); //da modificare in caso di ordine cambiato
     }
+    public void goHome()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
