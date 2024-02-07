@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private int score;
     int multiplier_value;
-    int lifePoints;
+    [SerializeField] int lifePoints = 5;
     [SerializeField] private Image showLifePoints;
     [SerializeField] private Sprite[] lifePointsArray;
 
@@ -30,10 +30,11 @@ public class GameManager : MonoBehaviour
         blade = FindObjectOfType<Blade>();
         spawner = FindObjectOfType<Spawner>();
         multiplier_value = 1;
-        lifePoints = 5;
+
         changeLife();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         Application.targetFrameRate = 60;  //in teoria rende il gioco pi� fluido
+
     }
 
 
@@ -132,7 +133,7 @@ public class GameManager : MonoBehaviour
 
        StartCoroutine(ExplodeSequence(punteggio_finale));
 
-        PlayFabManager.Instance.sendLeaderboard(score);  //salva punteggio sulla leaderboard
+       PlayFabManager.Instance.sendLeaderboard(score);  //salva punteggio sulla leaderboard
                 
     }
 

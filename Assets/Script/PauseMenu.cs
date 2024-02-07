@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject scoreUI;
     [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject leaderboardMessage;
 
     public void Pause( )
     {
@@ -17,10 +19,22 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void LeaderBoardScreen()
+      public void LeaderBoardScreen()
     {
-        SceneManager.LoadSceneAsync(3);
-        Time.timeScale = 1;
+        if (PlayFabManager.Instance.isLogged == true)
+        {
+            SceneManager.LoadSceneAsync(3);
+            Time.timeScale = 1;
+        } else
+        {
+            leaderboardMessage.SetActive(true);
+            //StartCoroutine(DeactivateAfterDelay(2f)); non funziona perché PauseMenu viene disattivato al gameover
+        }
+    }
+    IEnumerator DeactivateAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Attendere per il tempo specificato
+        leaderboardMessage.SetActive(false); // Disattiva il GameObject
     }
 
     public void Home()

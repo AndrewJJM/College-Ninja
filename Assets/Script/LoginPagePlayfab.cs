@@ -131,7 +131,6 @@ public class LoginPagePlayfab : MonoBehaviour
             null    // Failure callback
             );
 
-
     }
     public void RecoverUser()
     {
@@ -163,7 +162,15 @@ public class LoginPagePlayfab : MonoBehaviour
     private void OnregisterSucces(RegisterPlayFabUserResult Result)
     {
         MessageText.text = "New Account Is Created";
+        WelcomeObject.SetActive(true);
+        WelcomeText.text = "Registration complete";
+        Invoke("Deactivate", 1.5f);
         CreaRememberMeId();
+        OpenLoginPage();
+    }
+    void Deactivate()
+    {
+        WelcomeObject.SetActive(false); // Disattiva il GameObject
     }
 
     public void OpenLoginPage()
@@ -200,6 +207,6 @@ public class LoginPagePlayfab : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         MessageText.text = "Loggin in";
-        SceneManager.LoadSceneAsync(1); //da modificare in caso di ordine cambiato
+        SceneManager.LoadSceneAsync(0); //da modificare in caso di ordine cambiato
     }
 }
