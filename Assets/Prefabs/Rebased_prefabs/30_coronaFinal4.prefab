@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ddf9bf34f4cb05b44bcdb1496572c458,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddf9bf34f4cb05b44bcdb1496572c458,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddf9bf34f4cb05b44bcdb1496572c458,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.043636363
+      value: 0.04090909
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddf9bf34f4cb05b44bcdb1496572c458,
         type: 3}
@@ -104,6 +104,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2655156971305228439}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddf9bf34f4cb05b44bcdb1496572c458,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7663180225882821072}
   m_SourcePrefab: {fileID: 100100000, guid: ddf9bf34f4cb05b44bcdb1496572c458, type: 3}
 --- !u!1 &2946446825146282984 stripped
 GameObject:
@@ -172,3 +176,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1
+--- !u!114 &-7663180225882821072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946446825146282984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e962411bf69f5e943a7e27fb433b2570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

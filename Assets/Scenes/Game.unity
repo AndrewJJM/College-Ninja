@@ -1970,7 +1970,10 @@ MonoBehaviour:
   - {fileID: 885242290294938519, guid: bb718e814b9e5054aa52278300b7f577, type: 3}
   bombaPrefab: {fileID: 4204756169470482044, guid: cc399896c1ad7d74c9b14f312084c890,
     type: 3}
-  bombaChance: 0.25
+  bombaChance: 0.15
+  multiPrefab: {fileID: 2946446825146282984, guid: a7edbaa0f160eb24f846f8cafa0065ae,
+    type: 3}
+  multiChance: 0.05
   minSpawnDelay: 0.01
   maxSpawnDelay: 3
   minAngolo: -15

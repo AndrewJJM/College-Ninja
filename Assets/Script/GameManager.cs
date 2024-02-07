@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioManager audioManager;
 
     private int score;
-    int multiplier_value;
+    private int multiplier_value = 1;
     [SerializeField] int lifePoints = 5;
     [SerializeField] private Image showLifePoints;
     [SerializeField] private Sprite[] lifePointsArray;
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     {
         blade = FindObjectOfType<Blade>();
         spawner = FindObjectOfType<Spawner>();
-        multiplier_value = 1;
 
         changeLife();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -97,6 +96,23 @@ public class GameManager : MonoBehaviour
             Explode();
         }
     }
+
+    public void multiplyScore()
+    {
+        multiplier_value ++;
+        StartCoroutine(reduceMultiply(5));
+    }
+    private IEnumerator reduceMultiply(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        while (multiplier_value > 1)
+        {
+            multiplier_value--;
+            yield return new WaitForSeconds(time);
+        }
+    }
+
     private void changeLife()
     {
         switch (lifePoints)

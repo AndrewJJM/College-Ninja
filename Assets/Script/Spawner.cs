@@ -11,6 +11,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] private  GameObject[] PrefabOggetti;
     [SerializeField] private  GameObject bombaPrefab;
     [Range(0f, 1f)] public float bombaChance = 0.05f;
+    [SerializeField] private GameObject multiPrefab;
+    [Range(0f, 1f)] public float multiChance = 0.05f;
+
 
     [SerializeField] private float minSpawnDelay = 0.15f;
     [SerializeField] private float maxSpawnDelay = 3f;
@@ -53,11 +56,19 @@ public class Spawner : MonoBehaviour
 
         while (enabled)
         {
-            GameObject prefab =  PrefabOggetti[Random.Range(0, PrefabOggetti.Length)];
+            GameObject prefab;
 
 
             if (Random.value < bombaChance) { 
                 prefab = bombaPrefab;
+            } 
+            else if (Random.value < multiChance)
+            {
+                prefab = multiPrefab;
+            } 
+            else
+            {
+                prefab = PrefabOggetti[Random.Range(0, PrefabOggetti.Length)];
             }
 
             Vector3 coordinate = new Vector3();
