@@ -8,6 +8,7 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+
     private int RememberMe;
     private string RememberMeId;
     [SerializeField]
@@ -37,20 +38,27 @@ public class MainMenu : MonoBehaviour
             logoutButton.SetActive(false);
             StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Accedere per salvare il punteggio"));
         }
+
     }
+
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
+        AnimateButton buttonScript = WelcomeObject.GetComponent<AnimateButton>();
+
         // Attiva il GameObject della scritta
         WelcomeObject.SetActive(true);
+        //buttonScript.changeAnimationState("MessageScende");
 
 
         //Testo di benvenuto
         WelcomeText.text = stringa;
+        //buttonScript.changeAnimationState("MessageAperto");
 
         // Attendi per 2 secondi
         yield return new WaitForSeconds(2.0f);
 
         // Disattiva il GameObject della scritta dopo l'attesa
+        //buttonScript.changeAnimationState("MessageSale");
         WelcomeObject.SetActive(false);
     }
 
