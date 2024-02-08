@@ -17,11 +17,14 @@ public class AudioManager : MonoBehaviour
         public AudioClip gameOver;
         public AudioClip genericAudio;
 
+    
+
     private void Start()
     {
         musicSource.clip = background;
         musicSource.Play();
     }
+
 
     public void PlasySFX(AudioClip clip)
     {
