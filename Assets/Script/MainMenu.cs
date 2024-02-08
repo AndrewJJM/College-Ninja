@@ -43,10 +43,11 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
-        AnimateButton buttonScript = WelcomeObject.GetComponent<AnimateButton>();
+        Animator buttonAnimator = WelcomeObject.GetComponent<Animator>();
 
         // Attiva il GameObject della scritta
         WelcomeObject.SetActive(true);
+        buttonAnimator.SetTrigger(1);
         //buttonScript.changeAnimationState("MessageScende");
 
 

@@ -2241,7 +2241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229b1bf9951394beab2fc840d9284a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1390958134}
   WelcomeObject: {fileID: 1390958130}
   WelcomeText: {fileID: 1490093177}
   leaderboardButton: {fileID: 10953998}
@@ -2264,7 +2263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1390958131
 MonoBehaviour:
   m_ObjectHideFlags: 0
