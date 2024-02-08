@@ -8,6 +8,7 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+
     private int RememberMe;
     private string RememberMeId;
     [SerializeField]
@@ -37,12 +38,17 @@ public class MainMenu : MonoBehaviour
             logoutButton.SetActive(false);
             StartCoroutine(MostraScrittaPerDueSecondiCoroutine("Accedere per salvare il punteggio"));
         }
+
     }
+
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
+        AnimateButton buttonScript = WelcomeObject.GetComponent<AnimateButton>();
+
         // Attiva il GameObject della scritta
         WelcomeObject.SetActive(true);
 
+        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y -100, 0.4f);
 
         //Testo di benvenuto
         WelcomeText.text = stringa;
@@ -51,6 +57,8 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         // Disattiva il GameObject della scritta dopo l'attesa
+        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y + 100, 0.4f);
+        yield return new WaitForSeconds(0.4f);
         WelcomeObject.SetActive(false);
     }
 
