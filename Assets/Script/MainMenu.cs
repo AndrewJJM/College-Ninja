@@ -43,23 +43,22 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
-        Animator buttonAnimator = WelcomeObject.GetComponent<Animator>();
+        AnimateButton buttonScript = WelcomeObject.GetComponent<AnimateButton>();
 
         // Attiva il GameObject della scritta
         WelcomeObject.SetActive(true);
-        buttonAnimator.SetTrigger(1);
-        //buttonScript.changeAnimationState("MessageScende");
 
+        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y -100, 0.4f);
 
         //Testo di benvenuto
         WelcomeText.text = stringa;
-        //buttonScript.changeAnimationState("MessageAperto");
 
         // Attendi per 2 secondi
         yield return new WaitForSeconds(2.0f);
 
         // Disattiva il GameObject della scritta dopo l'attesa
-        //buttonScript.changeAnimationState("MessageSale");
+        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y + 100, 0.4f);
+        yield return new WaitForSeconds(0.4f);
         WelcomeObject.SetActive(false);
     }
 

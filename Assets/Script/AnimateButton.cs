@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AnimateButton : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    private Animator animator;
     string currentState;
 
     // Start is called before the first frame update
-    void awake()
+    void Start()
     {
         animator = GetComponent<Animator>();
     }
