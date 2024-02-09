@@ -17,9 +17,16 @@ public class PauseMenu : MonoBehaviour
         pauseButton.SetActive(false);
         Time.timeScale = 0;
     }
+    IEnumerator DeactivateAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Attendere per il tempo specificato
+        LeanTween.moveY(leaderboardMessage, leaderboardMessage.transform.position.y - 100, 0.4f).setEaseInExpo();
+
+        leaderboardMessage.SetActive(false); // Disattiva il GameObject
+    }
 
 
-      public void LeaderBoardScreen()
+    public void LeaderBoardScreen()
     {
         if (PlayFabManager.Instance.isLogged == true)
         {
@@ -28,18 +35,12 @@ public class PauseMenu : MonoBehaviour
         } else
         {
             leaderboardMessage.SetActive(true);
-            LeanTween.moveY(leaderboardMessage, leaderboardMessage.transform.position.y - 100, 0.4f).setEaseOutExpo();
+            LeanTween.moveY(leaderboardMessage, leaderboardMessage.transform.position.y + 100, 0.4f).setEaseOutExpo();
 
             StartCoroutine(DeactivateAfterDelay(2f)); 
         }
     }
-    IEnumerator DeactivateAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay); // Attendere per il tempo specificato
-        LeanTween.moveY(leaderboardMessage, leaderboardMessage.transform.position.y + 100, 0.4f).setEaseInExpo();
-
-        leaderboardMessage.SetActive(false); // Disattiva il GameObject
-    }
+ 
 
     public void Home()
     {

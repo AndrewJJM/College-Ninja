@@ -2529,8 +2529,9 @@ MonoBehaviour:
   slicing: {fileID: 8300000, guid: 96535be2fb3bd3b4d93d3375f9fbc835, type: 3}
   death: {fileID: 8300000, guid: 6014e3f40cf3f7849bd4bdea96b76a8c, type: 3}
   fall: {fileID: 8300000, guid: 8ea1aa42cdaa34aec923933a4dc8002f, type: 3}
-  multiplier: {fileID: 0}
-  gameOver: {fileID: 0}
+  multiplier: {fileID: 8300000, guid: 5819a4e9be4944032ae6680548255430, type: 3}
+  multiplier2: {fileID: 8300000, guid: f6b71326d88944e73aad336bde9f5dff, type: 3}
+  gameOver: {fileID: 8300000, guid: 6c1889b11d19643d2bcea4f8cf870da8, type: 3}
   genericAudio: {fileID: 8300000, guid: 5304d8fcc5f614c119dfd26624ce646d, type: 3}
 --- !u!1 &1455076650
 GameObject:
@@ -3357,7 +3358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 700}
+  m_AnchoredPosition: {x: 0, y: 320}
   m_SizeDelta: {x: 1200, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782001015
