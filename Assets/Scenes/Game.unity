@@ -2207,7 +2207,7 @@ MonoBehaviour:
   bombaChance: 0.15
   multiPrefab: {fileID: 2946446825146282984, guid: a7edbaa0f160eb24f846f8cafa0065ae,
     type: 3}
-  multiChance: 0.05
+  multiChance: 0.12
   minSpawnDelay: 0.01
   maxSpawnDelay: 3
   minAngolo: -15
@@ -2529,8 +2529,9 @@ MonoBehaviour:
   slicing: {fileID: 8300000, guid: 96535be2fb3bd3b4d93d3375f9fbc835, type: 3}
   death: {fileID: 8300000, guid: 6014e3f40cf3f7849bd4bdea96b76a8c, type: 3}
   fall: {fileID: 8300000, guid: 8ea1aa42cdaa34aec923933a4dc8002f, type: 3}
-  multiplayer: {fileID: 8300000, guid: 769b0e69eb937437a9f847bbd47cf8c0, type: 3}
-  gameOver: {fileID: 0}
+  multiplier: {fileID: 8300000, guid: 5819a4e9be4944032ae6680548255430, type: 3}
+  multiplier2: {fileID: 8300000, guid: f6b71326d88944e73aad336bde9f5dff, type: 3}
+  gameOver: {fileID: 8300000, guid: 6c1889b11d19643d2bcea4f8cf870da8, type: 3}
   genericAudio: {fileID: 8300000, guid: 5304d8fcc5f614c119dfd26624ce646d, type: 3}
 --- !u!1 &1455076650
 GameObject:
@@ -3611,6 +3612,7 @@ MonoBehaviour:
     type: 3}
   parentCanvas: {fileID: 1199131824}
   rectTransform: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!65 &2016929612
 BoxCollider:
   m_ObjectHideFlags: 0
