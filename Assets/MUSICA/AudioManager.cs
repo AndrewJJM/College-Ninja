@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
         public AudioClip death;
         public AudioClip fall;
         public AudioClip multiplier;
+        public AudioClip multiplier2;
         public AudioClip gameOver;
         public AudioClip genericAudio;
 

@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
             {
                 multiplierImage.SetActive(false);
                 //TODO aggiungere suono per disattivazione multiplier
+                audioManager.PlasySFX(audioManager.multiplier2);
             }
             yield return new WaitForSeconds(time);
         }
