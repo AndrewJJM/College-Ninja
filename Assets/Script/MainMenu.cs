@@ -51,30 +51,12 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        StartCoroutine(AnimazioneIniziale());
-    }
-
-    IEnumerator AnimazioneIniziale()
-    {
-        LeanTween.moveY(muroSopra, muroSopra.transform.position.y - 225, 0.4f);
-        LeanTween.moveY(muroSotto, muroSotto.transform.position.y + 225, 0.4f);
-
-        yield return new WaitForSeconds(2.0f);
-        muroVuoto.SetActive(false);
-
-        LeanTween.moveY(muroSopra, muroSopra.transform.position.y + 225, 0.4f);
-        LeanTween.moveY(muroSotto, muroSotto.transform.position.y - 225, 0.4f);
-        yield return new WaitForSeconds(2.0f);
-        animationObject.SetActive(false);
-    }
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
         // Attiva il GameObject della scritta
         WelcomeObject.SetActive(true);
 
-        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y -100, 0.4f);
+        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y -100, 0.4f).setEaseOutExpo();
 
         //Testo di benvenuto
         WelcomeText.text = stringa;
@@ -83,7 +65,7 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         // Disattiva il GameObject della scritta dopo l'attesa
-        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y + 100, 0.4f);
+        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y + 100, 0.4f).setEaseInExpo();
         yield return new WaitForSeconds(0.4f);
         WelcomeObject.SetActive(false);
     }
@@ -132,7 +114,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync("Game");
      }
 
 
@@ -143,7 +125,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoginScene()
     {
-        SceneManager.LoadSceneAsync(2); //numero da cambiare in base al numero scena nella build
+        SceneManager.LoadSceneAsync("Login"); //numero da cambiare in base al numero scena nella build
     }
 
     public void LogOut()
@@ -161,6 +143,6 @@ public class MainMenu : MonoBehaviour
     }
     public void OpenLeaderboard()
     {
-        SceneManager.LoadSceneAsync(3); //numero da cambiare in base al numero scena nella build
+        SceneManager.LoadSceneAsync("Leaderboard"); //numero da cambiare in base al numero scena nella build
     }
 }
