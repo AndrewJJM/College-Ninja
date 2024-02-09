@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         audioManager.PlasySFX(audioManager.multiplier);
 
         multiplierText.text = "x" + multiplier_value.ToString();
-        StartCoroutine(reduceMultiply(7));
+        StartCoroutine(reduceMultiply(10));
     }
     private IEnumerator reduceMultiply(float time)
     {
