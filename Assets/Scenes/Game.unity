@@ -2529,7 +2529,7 @@ MonoBehaviour:
   slicing: {fileID: 8300000, guid: 96535be2fb3bd3b4d93d3375f9fbc835, type: 3}
   death: {fileID: 8300000, guid: 6014e3f40cf3f7849bd4bdea96b76a8c, type: 3}
   fall: {fileID: 8300000, guid: 8ea1aa42cdaa34aec923933a4dc8002f, type: 3}
-  multiplayer: {fileID: 8300000, guid: 769b0e69eb937437a9f847bbd47cf8c0, type: 3}
+  multiplier: {fileID: 0}
   gameOver: {fileID: 0}
   genericAudio: {fileID: 8300000, guid: 5304d8fcc5f614c119dfd26624ce646d, type: 3}
 --- !u!1 &1455076650
@@ -3355,9 +3355,9 @@ RectTransform:
   - {fileID: 1455076651}
   m_Father: {fileID: 621942775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -185}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 700}
   m_SizeDelta: {x: 1200, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782001015
@@ -3611,6 +3611,7 @@ MonoBehaviour:
     type: 3}
   parentCanvas: {fileID: 1199131824}
   rectTransform: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!65 &2016929612
 BoxCollider:
   m_ObjectHideFlags: 0
