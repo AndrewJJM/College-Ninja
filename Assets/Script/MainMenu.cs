@@ -19,6 +19,15 @@ public class MainMenu : MonoBehaviour
     private GameObject leaderboardButton;
     [SerializeField]
     private GameObject logoutButton;
+    [SerializeField]
+    private GameObject mainMenuGUI;
+    [SerializeField]
+    private GameObject muroSopra;
+    [SerializeField]
+    private GameObject muroSotto;
+    [SerializeField]
+    private GameObject muroVuoto;
+
 
 
     private void Awake()
@@ -41,10 +50,13 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        
+    }
+
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
-        AnimateButton buttonScript = WelcomeObject.GetComponent<AnimateButton>();
-
         // Attiva il GameObject della scritta
         WelcomeObject.SetActive(true);
 
