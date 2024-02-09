@@ -11,6 +11,7 @@ public class Leaderboard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (MenuSound.Instance.isPlaying == false) MenuSound.Instance.PlaySound();
         PlayFabManager.Instance.leaderboardRow = rowLocal; //assegno i prefab al singleton playfabmanager
         PlayFabManager.Instance.rowParent = rowParentLocal;
         PlayFabManager.Instance.getLeaderboardAroundPlayer();
