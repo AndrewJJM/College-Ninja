@@ -207,10 +207,10 @@ public class LoginPagePlayfab : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         MessageText.text = "Loggin in";
-        SceneManager.LoadSceneAsync(0); //da modificare in caso di ordine cambiato
+        SceneManager.LoadSceneAsync("Main Menu"); //da modificare in caso di ordine cambiato
     }
     public void goHome()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main Menu");
     }
 }

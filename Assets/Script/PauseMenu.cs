@@ -23,12 +23,12 @@ public class PauseMenu : MonoBehaviour
     {
         if (PlayFabManager.Instance.isLogged == true)
         {
-            SceneManager.LoadSceneAsync(3);
+            SceneManager.LoadSceneAsync("Leaderboard");
             Time.timeScale = 1;
         } else
         {
             leaderboardMessage.SetActive(true);
-            //StartCoroutine(DeactivateAfterDelay(2f)); non funziona perché PauseMenu viene disattivato al gameover
+            StartCoroutine(DeactivateAfterDelay(2f)); 
         }
     }
     IEnumerator DeactivateAfterDelay(float delay)

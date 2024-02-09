@@ -18,12 +18,12 @@ public class Leaderboard : MonoBehaviour
 
     public void goHome()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void goGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Game");
     }
 
 }
