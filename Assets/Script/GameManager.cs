@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image showLifePoints;
     [SerializeField] private Sprite[] lifePointsArray;
 
+
     private void Awake()
     {
         blade = FindObjectOfType<Blade>();
@@ -105,8 +106,11 @@ public class GameManager : MonoBehaviour
     {
         multiplier_value ++;
         multiplierImage.SetActive(true);
+        //TODO aggiungere suono aumento multiplier
+        audioManager.PlasySFX(audioManager.multiplier);
+
         multiplierText.text = "x" + multiplier_value.ToString();
-        StartCoroutine(reduceMultiply(5));
+        StartCoroutine(reduceMultiply(7));
     }
     private IEnumerator reduceMultiply(float time)
     {
@@ -119,6 +123,7 @@ public class GameManager : MonoBehaviour
             if (multiplier_value == 1)
             {
                 multiplierImage.SetActive(false);
+                //TODO aggiungere suono per disattivazione multiplier
             }
             yield return new WaitForSeconds(time);
         }
@@ -206,6 +211,9 @@ public class GameManager : MonoBehaviour
     private void openGameOverMenu(int punteggio_finale)
     {
         gameOverMenu.SetActive(true);
+        //TODO Aggiungere suono per apertura Gameover
+        audioManager.PlasySFX(audioManager.gameOver);
+
         scoreUI.SetActive(false);
         pauseButton.SetActive(false);
         mostraPunteggio.GetComponentInChildren<TextMeshProUGUI>().text = punteggio_finale.ToString();

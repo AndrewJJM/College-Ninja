@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
         public AudioClip slicing;
         public AudioClip death;
         public AudioClip fall;
-        public AudioClip multiplayer;
+        public AudioClip multiplier;
         public AudioClip gameOver;
         public AudioClip genericAudio;
 
@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        MenuSound.Instance.StopSound();
         musicSource.clip = background;
         musicSource.Play();
     }

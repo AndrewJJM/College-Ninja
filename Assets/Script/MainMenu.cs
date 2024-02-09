@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        if (MenuSound.Instance.isPlaying == false) MenuSound.Instance.PlaySound();
         RememberMeId = PlayerPrefs.GetString("RememberMeId");
 
         if (PlayFabManager.Instance.isLogged == false && !string.IsNullOrEmpty(RememberMeId)) { 
@@ -29,7 +30,7 @@ public class MainMenu : MonoBehaviour
         }
         else if (PlayFabManager.Instance.isLogged == true)
         {
-            //da aggiungere un cambio di menù nelle opzioni in caso il giocatore sia loggato
+            //da aggiungere un cambio di menï¿½ nelle opzioni in caso il giocatore sia loggato
         }
         else
         {
