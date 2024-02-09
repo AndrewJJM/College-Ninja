@@ -2207,7 +2207,7 @@ MonoBehaviour:
   bombaChance: 0.15
   multiPrefab: {fileID: 2946446825146282984, guid: a7edbaa0f160eb24f846f8cafa0065ae,
     type: 3}
-  multiChance: 0.05
+  multiChance: 0.1
   minSpawnDelay: 0.01
   maxSpawnDelay: 3
   minAngolo: -15
