@@ -20,13 +20,14 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject logoutButton;
     [SerializeField]
-    private GameObject mainMenuGUI;
+    private GameObject animationObject;
     [SerializeField]
     private GameObject muroSopra;
     [SerializeField]
     private GameObject muroSotto;
     [SerializeField]
     private GameObject muroVuoto;
+    private bool firstEnter = false;
 
 
 
@@ -52,9 +53,22 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        
+        StartCoroutine(AnimazioneIniziale());
     }
 
+    IEnumerator AnimazioneIniziale()
+    {
+        LeanTween.moveY(muroSopra, muroSopra.transform.position.y - 225, 0.4f);
+        LeanTween.moveY(muroSotto, muroSotto.transform.position.y + 225, 0.4f);
+
+        yield return new WaitForSeconds(2.0f);
+        muroVuoto.SetActive(false);
+
+        LeanTween.moveY(muroSopra, muroSopra.transform.position.y + 225, 0.4f);
+        LeanTween.moveY(muroSotto, muroSotto.transform.position.y - 225, 0.4f);
+        yield return new WaitForSeconds(2.0f);
+        animationObject.SetActive(false);
+    }
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
         // Attiva il GameObject della scritta
