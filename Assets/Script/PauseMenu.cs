@@ -17,25 +17,30 @@ public class PauseMenu : MonoBehaviour
         pauseButton.SetActive(false);
         Time.timeScale = 0;
     }
+    IEnumerator DeactivateAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Attendere per il tempo specificato
+        LeanTween.moveY(leaderboardMessage, leaderboardMessage.transform.position.y - 100, 0.4f).setEaseInExpo();
+
+        leaderboardMessage.SetActive(false); // Disattiva il GameObject
+    }
 
 
-      public void LeaderBoardScreen()
+    public void LeaderBoardScreen()
     {
         if (PlayFabManager.Instance.isLogged == true)
         {
-            SceneManager.LoadSceneAsync(3);
+            SceneManager.LoadSceneAsync("Leaderboard");
             Time.timeScale = 1;
         } else
         {
             leaderboardMessage.SetActive(true);
-            //StartCoroutine(DeactivateAfterDelay(2f)); non funziona perché PauseMenu viene disattivato al gameover
+            LeanTween.moveY(leaderboardMessage, leaderboardMessage.transform.position.y + 100, 0.4f).setEaseOutExpo();
+
+            StartCoroutine(DeactivateAfterDelay(2f)); 
         }
     }
-    IEnumerator DeactivateAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay); // Attendere per il tempo specificato
-        leaderboardMessage.SetActive(false); // Disattiva il GameObject
-    }
+ 
 
     public void Home()
     {

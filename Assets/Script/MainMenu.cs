@@ -19,6 +19,16 @@ public class MainMenu : MonoBehaviour
     private GameObject leaderboardButton;
     [SerializeField]
     private GameObject logoutButton;
+    [SerializeField]
+    private GameObject animationObject;
+    [SerializeField]
+    private GameObject muroSopra;
+    [SerializeField]
+    private GameObject muroSotto;
+    [SerializeField]
+    private GameObject muroVuoto;
+    private bool firstEnter = false;
+
 
 
     private void Awake()
@@ -44,12 +54,10 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator MostraScrittaPerDueSecondiCoroutine(string stringa)
     {
-        AnimateButton buttonScript = WelcomeObject.GetComponent<AnimateButton>();
-
         // Attiva il GameObject della scritta
         WelcomeObject.SetActive(true);
 
-        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y -100, 0.4f);
+        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y -100, 0.4f).setEaseOutExpo();
 
         //Testo di benvenuto
         WelcomeText.text = stringa;
@@ -58,7 +66,7 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         // Disattiva il GameObject della scritta dopo l'attesa
-        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y + 100, 0.4f);
+        LeanTween.moveY(WelcomeObject, WelcomeObject.transform.position.y + 100, 0.4f).setEaseInExpo();
         yield return new WaitForSeconds(0.4f);
         WelcomeObject.SetActive(false);
     }
@@ -107,7 +115,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync("Game");
      }
 
 
@@ -118,7 +126,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoginScene()
     {
-        SceneManager.LoadSceneAsync(2); //numero da cambiare in base al numero scena nella build
+        SceneManager.LoadSceneAsync("Login"); //numero da cambiare in base al numero scena nella build
     }
 
     public void LogOut()
@@ -136,6 +144,6 @@ public class MainMenu : MonoBehaviour
     }
     public void OpenLeaderboard()
     {
-        SceneManager.LoadSceneAsync(3); //numero da cambiare in base al numero scena nella build
+        SceneManager.LoadSceneAsync("Leaderboard"); //numero da cambiare in base al numero scena nella build
     }
 }
