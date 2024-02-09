@@ -22,7 +22,7 @@ public class FirstAnimation : MonoBehaviour
     {
         RememberMeId = PlayerPrefs.GetString("RememberMeId");
 
-        if (!string.IsNullOrEmpty(RememberMeId))
+        if (string.IsNullOrEmpty(RememberMeId))
         {
             leaderboardButton.SetActive(false);
         }
@@ -31,15 +31,15 @@ public class FirstAnimation : MonoBehaviour
 
     IEnumerator AnimazioneIniziale()
     {
-        LeanTween.moveY(muroSopra, muroSopra.transform.position.y - 225, 0.4f).setEaseOutExpo();
-        LeanTween.moveY(muroSotto, muroSotto.transform.position.y + 225, 0.4f).setEaseOutExpo();
+        LeanTween.moveY(muroSopra, muroSopra.transform.position.y - 975, 0.4f).setEaseOutExpo();
+        LeanTween.moveY(muroSotto, muroSotto.transform.position.y + 975, 0.4f).setEaseOutExpo();
 
         yield return new WaitForSeconds(2.0f);
         muroVuoto.SetActive(false);
         menuGUI.SetActive(true);
 
-        LeanTween.moveY(muroSopra, muroSopra.transform.position.y + 225, 0.4f).setEaseInExpo();
-        LeanTween.moveY(muroSotto, muroSotto.transform.position.y - 225, 0.4f).setEaseInExpo();
+        LeanTween.moveY(muroSopra, muroSopra.transform.position.y + 975, 0.4f).setEaseInExpo();
+        LeanTween.moveY(muroSotto, muroSotto.transform.position.y - 975, 0.4f).setEaseInExpo();
 
         yield return new WaitForSeconds(0.4f);
 
