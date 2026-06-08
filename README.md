@@ -1,6 +1,11 @@
 # College-Ninja
 Progetto di mobile computing 2023
 
+![screenshot_1](./Assets/SVID_20260608_213935_1_exported_32174.jpg?raw=true)
+![screenshot_2]()
+![screenshot_3]()
+![leaderboard](./Assets/Screenshot_20260608_215946_com_DefaultCompany_CollegeNinja_UnityPlayerActivity.jpg?raw=true)
+
 Ruoli: 
 
 - Setting - Alessia
