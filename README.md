@@ -2,7 +2,7 @@
 Progetto di mobile computing 2023
 
 ![screenshot_1](./Assets/SVID_20260608_213935_1_exported_32174.jpg?raw=true)
-![screenshot_2]./Assets/SVID_20260608_220736_1_exported_60740.jpg?raw=true)
+![screenshot_2](./Assets/SVID_20260608_220736_1_exported_60740.jpg?raw=true)
 ![screenshot_3](./Assets/SVID_20260608_220736_1_exported_66646.jpg?raw=true)
 ![leaderboard](./Assets/Screenshot_20260608_215946_com_DefaultCompany_CollegeNinja_UnityPlayerActivity.jpg?raw=true)
 
